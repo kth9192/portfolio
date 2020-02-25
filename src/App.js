@@ -17,7 +17,7 @@ function MenuBar() {
 }
 
 const goGit = e => {
-  window.location = "https://github.com/kth9192/portpolio";
+  window.location = "https://github.com/kth9192";
 };
 
 function CoverBox() {
