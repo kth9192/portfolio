@@ -1,17 +1,17 @@
 import React, { Component, Fragment } from "react";
 import styled, { createGlobalStyle, css } from "styled-components";
-import ProjectItem from "./ProjectItem";
-import ProjectInfo from "./Data";
+import ProjectItem from "./projectItem";
+import ProjectInfo from "./data";
 
 function MenuBar() {
   return (
     <TopMenu className="menu">
       <p className="linkBox__txt">PORTPOILO</p>
-      <MyGrid>
+      <NavGrid>
         <div>홈으로</div>
         <div>소개</div>
         <div>프로젝트</div>
-      </MyGrid>
+      </NavGrid>
     </TopMenu>
   );
 }
@@ -91,12 +91,20 @@ const TopMenu = styled.div`
   }
 `;
 
-const MyGrid = styled.div`
+const NavGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 50%;
   text-align: center;
   color: white;
+  div {
+    cursor: pointer;
+    &:hover {
+      background-color: #fff;
+      color: #000;
+      transition: 400ms ease all;
+    }
+  }
 `;
 
 const Cover = styled.section`
