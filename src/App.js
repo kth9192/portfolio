@@ -22,33 +22,49 @@ const goGit = e => {
 
 function CoverBox() {
   return (
-    <Fragment>
-      <Cover className="cover">
-        <MenuBar></MenuBar>
-        <LinkBoxContent>
-          <LinkBtn onClick={goGit}>
-            <img src="gitHub-Mark-32px.png" alt="github" />
-            <p>GitHub로 이동하기</p>
-          </LinkBtn>
-        </LinkBoxContent>
-      </Cover>
-    </Fragment>
+    <Cover className="cover">
+      <MenuBar></MenuBar>
+      <LinkBoxContent>
+        <LinkBtn onClick={goGit}>
+          <img src="gitHub-Mark-32px.png" alt="github" />
+          <p>GitHub로 이동하기</p>
+        </LinkBtn>
+      </LinkBoxContent>
+    </Cover>
+  );
+}
+
+function AboutSection() {
+  return (
+    <SectionBoxA>
+      <h2>About</h2>
+      <SectionSpacer />
+      <div>
+        <p>KIM TAE HOON</p>
+        <p>제주대학교 컴퓨터공학전공 학사 졸업 </p>
+        <p>Email : kth9193@gmail.com</p>
+        <p>Github : https://github.com/kth9192</p>
+      </div>
+    </SectionBoxA>
   );
 }
 
 function ProjectSection() {
   return (
-    <SectionBox className="projectSection">
-      {ProjectInfo.map(project => (
-        <ProjectItem
-          key={project.id}
-          id={project.id}
-          name={project.name}
-          img={project.img}
-          description={project.description}
-        />
-      ))}
-    </SectionBox>
+    <SectionBoxB className="projectSection">
+      {ProjectInfo.map(project => {
+        return (
+          <ProjectItem
+            key={project.id}
+            id={project.id}
+            name={project.name}
+            img={project.img}
+            description={project.description}
+            stack={project.stack}
+          />
+        );
+      })}
+    </SectionBoxB>
   );
 }
 
@@ -58,6 +74,7 @@ class App extends Component {
       <Fragment>
         <GlobalStyle />
         <CoverBox />
+        <AboutSection />
         <ProjectSection />
       </Fragment>
     );
@@ -72,6 +89,8 @@ const GlobalStyle = createGlobalStyle`
     body {
         padding: 0;
         margin: 0;
+        height: 100vh;
+        z-index:1;
         font-family:나눔고딕, NanumBarunGothic, ng;
     }
 `;
@@ -98,11 +117,17 @@ const NavGrid = styled.div`
   text-align: center;
   color: white;
   div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    height: 2rem;
     &:hover {
       background-color: #fff;
       color: #000;
-      transition: 400ms ease all;
+      font-weight: bold;
+      transition: 400ms ease;
+      transition-property: background-color;
     }
   }
 `;
@@ -110,7 +135,8 @@ const NavGrid = styled.div`
 const Cover = styled.section`
   display: flex;
   width: 100%;
-  height: 50vh;
+  height: 400px;
+  float: left;
   flex-direction: column;
   align-items: center;
   background-image: url("intro-bg.png");
@@ -171,12 +197,33 @@ const LinkBoxContent = styled.div`
   }
 `;
 
-const SectionBox = styled.section`
+const SectionBoxA = styled.section`
   display: flex;
   width: 100%;
-  height: 500px;
+  background-color: #f8f8f8;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  float: left;
+  p {
+    text-align: center;
+  }
+`;
+
+const SectionBoxB = styled.section`
+  display: flex;
+  width: 100%;
   justify-content: center;
   flex-direction: column;
+  float: left;
+`;
+const SectionSpacer = styled.hr`
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  width: 300px;
+  border-top: 3px solid #e7e7e7;
+  text-align: center;
 `;
 
 export default App;

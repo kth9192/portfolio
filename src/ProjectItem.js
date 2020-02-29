@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import DetailBtn from "./detailBtn";
 
-function ProjectItem({ name, img, description }) {
+function ProjectItem({ id, name, img, description, stack }) {
   return (
     <ProjectBox>
-      <p>{name}</p>
-      <DetailBtn title={name}>자세히</DetailBtn>
-      {/* <img src={img} alt={name} /> */}
+      <h2>{name}</h2>
       <p>{description}</p>
+      <h4>- STACK</h4>
+      <p>{stack}</p>
+      <DetailBtn title={name} data={img} />
     </ProjectBox>
   );
 }
@@ -18,7 +19,7 @@ const ProjectBox = styled.div`
   width: 80%;
   height: fit-content;
   border-bottom: 1px solid black;
-
+  margin: 0 10px;
   img {
     width: 18.75rem;
     height: 14.0625rem;
@@ -27,7 +28,7 @@ const ProjectBox = styled.div`
 
 ProjectItem.propTypes = {
   name: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
+  img: PropTypes.arrayOf(PropTypes.string).isRequired,
   description: PropTypes.string
 };
 
