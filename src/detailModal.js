@@ -9,12 +9,16 @@ const DetailModal = props => {
 
   const [idx, setidx] = useState(0);
   const [img, setImg] = useState(props.data[0]);
+  const [limit, setLimit] = useState("front");
 
   const moveFront = e => {
     e.stopPropagation();
     e.preventDefault();
     if (idx - 1 >= 0) {
       setidx(idx - 1);
+      setLimit(null);
+    } else {
+      setLimit("front");
     }
   };
 
@@ -23,6 +27,9 @@ const DetailModal = props => {
     e.preventDefault();
     if (idx + 1 < props.data.length) {
       setidx(idx + 1);
+      setLimit(null);
+    } else {
+      setLimit("end");
     }
   };
 
@@ -49,6 +56,7 @@ const DetailModal = props => {
                   moveFront={moveFront}
                   moveEnd={moveEnd}
                   title={props.title}
+                  limitObj={limit}
                 ></Pager>
               </Content>
               <ModalFooter>

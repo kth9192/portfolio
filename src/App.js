@@ -4,13 +4,21 @@ import ProjectItem from "./projectItem";
 import ProjectInfo from "./data";
 
 function MenuBar() {
+  const moveTo = e => {
+    const target = document.querySelectorAll("." + e.target.className)[1];
+    target.scrollIntoView();
+  };
+
   return (
     <TopMenu className="menu">
       <p className="linkBox__txt">PORTPOILO</p>
       <NavGrid>
-        <div>홈으로</div>
-        <div>소개</div>
-        <div>프로젝트</div>
+        <div className="about" onClick={e => moveTo(e)}>
+          소개
+        </div>
+        <div className="projects" onClick={e => moveTo(e)}>
+          프로젝트
+        </div>
       </NavGrid>
     </TopMenu>
   );
@@ -36,7 +44,7 @@ function CoverBox() {
 
 function AboutSection() {
   return (
-    <SectionBoxA>
+    <SectionBoxA className="about">
       <h2>About</h2>
       <SectionSpacer />
       <div>
@@ -51,7 +59,9 @@ function AboutSection() {
 
 function ProjectSection() {
   return (
-    <SectionBoxB className="projectSection">
+    <SectionBoxB className="projects">
+      <h2>Project</h2>
+      <SectionSpacer />
       {ProjectInfo.map(project => {
         return (
           <ProjectItem
@@ -112,7 +122,7 @@ const TopMenu = styled.div`
 
 const NavGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   width: 50%;
   text-align: center;
   color: white;

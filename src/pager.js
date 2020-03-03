@@ -1,18 +1,34 @@
-import React, { Fragment, useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Pager = props => {
+  const [minColor, setMinColor] = useState("black");
+  const [maxColor, setMaxColor] = useState("black");
+
+  useEffect(() => {
+    if (props.limitObj === "front") {
+      setMinColor("gray");
+      setMaxColor("black");
+    } else if (props.limitObj === "end") {
+      setMinColor("black");
+      setMaxColor("gray");
+    } else {
+      setMinColor("black");
+      setMaxColor("black");
+    }
+  }, [maxColor, props.limitObj]);
+
   return (
     <Cover>
       <Indicator id="frontIndicator" onClick={props.moveFront}>
-        <IoIosArrowBack size={40} />
+        <IoIosArrowBack size={40} color={minColor} />
       </Indicator>
       <Body>
         <CardImg src={props.img} alt={props.title} />
       </Body>
       <Indicator id="endIndicator" onClick={props.moveEnd}>
-        <IoIosArrowForward size={40} />
+        <IoIosArrowForward size={40} color={maxColor} />
       </Indicator>
     </Cover>
   );
