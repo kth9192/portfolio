@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/portpolio/static/js/main.1f774146.chunk.js",
-    "main.js.map": "/portpolio/static/js/main.1f774146.chunk.js.map",
-    "runtime-main.js": "/portpolio/static/js/runtime-main.74f9690d.js",
-    "runtime-main.js.map": "/portpolio/static/js/runtime-main.74f9690d.js.map",
-    "static/js/2.89d02d77.chunk.js": "/portpolio/static/js/2.89d02d77.chunk.js",
-    "static/js/2.89d02d77.chunk.js.map": "/portpolio/static/js/2.89d02d77.chunk.js.map",
-    "index.html": "/portpolio/index.html",
-    "precache-manifest.4d366fd8b849986fd46e81b4db030c65.js": "/portpolio/precache-manifest.4d366fd8b849986fd46e81b4db030c65.js",
-    "service-worker.js": "/portpolio/service-worker.js"
+    "main.js": "/portfolio/static/js/main.65390fbe.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.65390fbe.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.353bb566.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.353bb566.js.map",
+    "static/js/2.33fbe470.chunk.js": "/portfolio/static/js/2.33fbe470.chunk.js",
+    "static/js/2.33fbe470.chunk.js.map": "/portfolio/static/js/2.33fbe470.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "precache-manifest.ac399ec83cd04ff90433a356dca12136.js": "/portfolio/precache-manifest.ac399ec83cd04ff90433a356dca12136.js",
+    "service-worker.js": "/portfolio/service-worker.js"
   },
   "entrypoints": [
-    "static/js/runtime-main.74f9690d.js",
-    "static/js/2.89d02d77.chunk.js",
-    "static/js/main.1f774146.chunk.js"
+    "static/js/runtime-main.353bb566.js",
+    "static/js/2.33fbe470.chunk.js",
+    "static/js/main.65390fbe.chunk.js"
   ]
 }
