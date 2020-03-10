@@ -31,7 +31,7 @@ const goGit = e => {
 function CoverBox() {
   return (
     <Cover className="cover">
-      <MenuBar></MenuBar>
+      <MenuBar />
       <LinkBoxContent>
         <LinkBtn onClick={goGit}>
           <img src="gitHub-Mark-32px.png" alt="github" />
