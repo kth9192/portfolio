@@ -28,9 +28,9 @@ app.use(
 
 let root;
 if (app.get("env") === "development") {
-  root = path.join(__dirname, "public");
+  root = path.join(__dirname, "../../build");
 } else {
-  root = path.join(__dirname, "/");
+  root = path.join(__dirname, "/public");
 }
 app.use(express.static(root));
 
@@ -46,6 +46,6 @@ setInterval(function() {
   https.get("https://kth9192-portfolio.herokuapp.com/");
 }, 600000);
 
-app.listen(process.env.PORT || 3002, () =>
+app.listen(process.env.PORT || 3001, () =>
   console.log("Example app listening on port 3001!")
 );
