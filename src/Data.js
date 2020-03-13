@@ -3,7 +3,7 @@ const projects = [
     id: 0,
     name: "유튜브 클립 저장소",
     img: [
-      process.env.PUBLIC_URL + "youtube-cutter.png",
+      process.env.PUBLIC_URL + "youtube-cutter2.png",
       process.env.PUBLIC_URL + "youtube-cutter2.png",
       process.env.PUBLIC_URL + "youtube-cutter3.png"
     ],
