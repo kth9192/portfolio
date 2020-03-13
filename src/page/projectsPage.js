@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import ProjectInfo from "../data";
+import { projects } from "../data";
 import ProjectItem from "../components/projectItem";
 
 class ProjectsPage extends Component {
@@ -13,7 +13,7 @@ class ProjectsPage extends Component {
       <SectionBoxB className="projects">
         <h1>Project</h1>
         <SectionSpacer />
-        {ProjectInfo.map(project => {
+        {projects.map(project => {
           return (
             <ProjectItem
               key={project.id}

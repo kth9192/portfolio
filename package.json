@@ -2,7 +2,6 @@
   "name": "kth9192.github.io",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kth9192.github.io/portfolio",
   "dependencies": {
     "@babel/runtime": "^7.8.7",
     "body-parser": "^1.19.0",
