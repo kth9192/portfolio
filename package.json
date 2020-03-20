@@ -22,7 +22,7 @@
     "start": "node ./build/server.js",
     "build-babel": "babel -d ./build ./src/server -s",
     "dev-start": "react-scripts start",
-    "build": " cross-env NODE_PATH=src react-scripts build && yarn build-babel ",
+    "build": " cross-env react-scripts build && yarn build-babel ",
     "build-dev": "cross-env NODE_PATH=src react-scripts build",
     "dev": "yarn build-dev && nodemon --exec babel-node ./src/server/server.js",
     "test": "react-scripts test",
