@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { projects } from "../data";
+import { projects } from "../resource";
 import ProjectItem from "../components/projectItem";
 
 class ProjectsPage extends Component {
