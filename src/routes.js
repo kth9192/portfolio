@@ -15,7 +15,7 @@ export default () => {
     <BrowserRouter>
       <HeaderBar />
       <Switch>
-        <Route exact path="/portfolio" component={InfoPage} />
+        <Route exact path="/" component={InfoPage} />
         <Route path="/projects" component={ProjectsPage} />
       </Switch>
     </BrowserRouter>

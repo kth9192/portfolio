@@ -14,7 +14,7 @@ function HeaderBar() {
       <TopMenu className="menu">
         <p className="linkBox__txt">PORTPOILO</p>
         <NavGrid>
-          <CustomLink to="/portfolio">
+          <CustomLink to="/">
             <div className="about">소개</div>
           </CustomLink>
           <CustomLink to="/projects">
