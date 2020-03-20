@@ -1,4 +1,4 @@
-exports.projects = [
+export const projects = [
   {
     id: 0,
     name: "유튜브 클립 저장소",
