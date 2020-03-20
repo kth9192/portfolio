@@ -1,4 +1,4 @@
-const projects = [
+export const projects = [
   {
     id: 0,
     name: "유튜브 클립 저장소",
@@ -28,5 +28,3 @@ const projects = [
     url: "http://squardmaker.herokuapp.com/"
   }
 ];
-
-export default projects;
