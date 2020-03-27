@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 
 import styled, { css } from "styled-components";
+import { Documents } from "@styled-icons/entypo";
 
 function HeaderBar() {
+  const whatContainClass = targetClass => {
+    if (targetClass.includes("home")) {
+      return "home";
+    } else if (targetClass.includes("about")) {
+      return "about";
+    } else if (targetClass.includes("projects")) {
+      return "projects";
+    } else {
+      return "home";
+    }
+  };
+
+  const [activated, setActivate] = useState(
+    whatContainClass(window.location.href)
+  );
+
+  const selectHandler = e => {
+    const targetClass = [...e.target.classList];
+    console.log("====================================");
+    console.log(targetClass);
+    console.log("====================================");
+
+    setActivate(whatContainClass(targetClass));
+  };
+
   const MenuBar = () => {
     const moveTo = e => {
       const target = document.querySelectorAll("." + e.target.className)[1];
@@ -12,13 +38,33 @@ function HeaderBar() {
 
     return (
       <TopMenu className="menu">
-        <p className="linkBox__txt">PORTPOILO</p>
         <NavGrid>
           <CustomLink to="/">
-            <div className="about">소개</div>
+            <NavItem
+              className="home"
+              onClick={e => selectHandler(e)}
+              selected={activated === "home" ? true : false}
+            >
+              Home
+            </NavItem>
+          </CustomLink>
+          <CustomLink to="/about">
+            <NavItem
+              className="about"
+              onClick={e => selectHandler(e)}
+              selected={activated === "about" ? true : false}
+            >
+              About
+            </NavItem>
           </CustomLink>
           <CustomLink to="/projects">
-            <div className="projects">프로젝트</div>
+            <NavItem
+              className="projects"
+              onClick={e => selectHandler(e)}
+              selected={activated === "projects" ? true : false}
+            >
+              Project
+            </NavItem>
           </CustomLink>
         </NavGrid>
       </TopMenu>
@@ -31,26 +77,51 @@ function HeaderBar() {
 
   return (
     <Cover className="cover">
-      <MenuBar />
       <LinkBoxContent>
+        <h1>PORTFOLIO</h1>
+      </LinkBoxContent>
+      <MenuBar />
+      <LinkBox>
         <LinkBtn onClick={goGit}>
           <img src="gitHub-Mark-32px.png" alt="github" />
-          <p>GitHub로 이동하기</p>
         </LinkBtn>
-      </LinkBoxContent>
+        {/* /TOOD:이력서로 이동 */}
+
+        <LinkBtn onClick={goGit}>
+          <CustomDocs size="30" />
+        </LinkBtn>
+      </LinkBox>
     </Cover>
   );
 }
+
+const Cover = styled.section`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  height: 10rem;
+  float: left;
+  justify-items: center;
+  align-items: center;
+
+  /* background-image: url("intro-bg.png"); */
+  border: none;
+  border-bottom: 1px gray solid;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`;
 
 const TopMenu = styled.div`
   display: flex;
   width: 100%;
   height: fit-content;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  flex-direction: column;
+
   p {
-    color: white;
     font-weight: bold;
     font-size: 50px;
     border-bottom: 1px solid;
@@ -59,95 +130,110 @@ const TopMenu = styled.div`
 
 const NavGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  width: 50%;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
   text-align: center;
-  color: white;
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    height: 2rem;
-    &:hover {
-      background-color: #fff;
-      color: #000;
-      font-weight: bold;
-      transition: 400ms ease;
-      transition-property: background-color;
-    }
-  }
 `;
 
-const Cover = styled.section`
+const LinkBox = styled.div`
   display: flex;
-  width: 100%;
-  height: 25rem;
-  float: left;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-image: url("intro-bg.png");
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
 `;
 
 const LinkBtn = styled.button`
   display: flex;
-  width: 80%;
+  width: 4rem;
   height: fit-content;
   border: 2px white solid;
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  color: white;
+
   font-size: 16px;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.5s ease;
-
-  &:hover {
-    color: black;
-    background-color: white;
-    border: 1px black solid;
-    font-weight: bold;
-    img {
-      filter: invert(0);
-    }
-    p {
-      text-decoration: underline;
-    }
-  }
 
   img {
     border-radius: 50%;
     width: 30px;
     height: 30px;
     margin: 4px;
-    filter: invert(1);
+    filter: invert(0.7);
+    transition: all 0.8s ease;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: black;
+    background-color: white;
+    font-weight: bold;
+
+    img {
+      filter: invert(0);
+      transition: all 0.8s ease;
+    }
+    p {
+      text-decoration: underline;
+    }
   }
 `;
 
 const LinkBoxContent = styled.div`
   display: flex;
-  width: 40%;
   height: 100%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  .linkBox__txt {
-    color: white;
-    font-size: 50px;
-    font-weight: bold;
-  }
 `;
 
 const CustomLink = styled(Link)`
   cursor: pointer;
   text-decoration: none;
   color: #fff;
+`;
+
+const NavItem = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: gray;
+  height: 2rem;
+  background-color: #fff;
+
+  ${props =>
+    props.selected &&
+    css`
+      color: #000;
+      font-size: 18px;
+      font-weight: bold;
+    `}
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    transition: 400ms ease;
+    transition-property: background-color;
+  }
+`;
+
+const CustomDocs = styled(Documents)`
+  cursor: pointer;
+  text-decoration: none;
+  color: gray;
+  transition: all 0.8s ease;
+
+  &:hover {
+    color: black;
+    font-weight: bold;
+    filter: invert(0);
+    transition: all 0.8s ease;
+  }
 `;
 
 export default withRouter(HeaderBar);

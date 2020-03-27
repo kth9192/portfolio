@@ -2,13 +2,16 @@ import React, { Fragment, useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import ReactDOM from "react-dom";
 import Pager from "./pager";
+import { DotSingle } from "@styled-icons/entypo";
+import { CloseOutline } from "@styled-icons/evaicons-outline";
+import { Pointer } from "styled-icons/boxicons-solid";
 
 const DetailModal = props => {
   const ref = useRef();
   useOnClick(ref, props.closeModal);
 
   const [idx, setidx] = useState(0);
-  const [img, setImg] = useState(props.data[0]);
+  const [img, setImg] = useState(props.img[0]);
   const [limit, setLimit] = useState("front");
 
   const moveFront = e => {
@@ -25,7 +28,7 @@ const DetailModal = props => {
   const moveEnd = e => {
     e.stopPropagation();
     e.preventDefault();
-    if (idx + 1 < props.data.length) {
+    if (idx + 1 < props.img.length) {
       setidx(idx + 1);
       setLimit(null);
     } else {
@@ -38,8 +41,8 @@ const DetailModal = props => {
     console.log("idx?", idx);
     console.log("====================================");
 
-    setImg(props.data[idx]);
-  }, [idx, props.data]);
+    setImg(props.img[idx]);
+  }, [idx, props.img]);
 
   return ReactDOM.createPortal(
     <Fragment>
@@ -49,15 +52,36 @@ const DetailModal = props => {
             <Modal ref={ref}>
               <ModalHeader>
                 <Title>{props.title}</Title>
+                <CloseOutline
+                  size={30}
+                  color={"#D9E0EA"}
+                  style={{
+                    cursor: "pointer",
+                    right: "0",
+                    marginRight: "8px",
+                    position: "absolute"
+                  }}
+                  onClick={e => props.closeModal(e)}
+                />
               </ModalHeader>
               <Content>
-                <Pager
-                  img={img}
-                  moveFront={moveFront}
-                  moveEnd={moveEnd}
-                  title={props.title}
-                  limitObj={limit}
-                ></Pager>
+                <SubTitle>
+                  <DotSingle size={40} color={"#5968E2"} />
+                  설명
+                </SubTitle>
+
+                <SubContent>
+                  <Sentence>{props.description}</Sentence>
+                  <Sentence>{props.stack}</Sentence>
+                  {/* <Pager
+                    img={img}
+                    moveFront={moveFront}
+                    moveEnd={moveEnd}
+                    title={props.title}
+                    limitObj={limit}
+                  /> */}
+                  <LinkBtn onClick={console.log(props.url)}>이동하기</LinkBtn>
+                </SubContent>
               </Content>
               <ModalFooter>
                 <ButtonWrap>
@@ -139,6 +163,7 @@ const Modal = styled.div`
 
 const ModalHeader = styled.div`
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid #bebebe;
@@ -147,8 +172,7 @@ const ModalHeader = styled.div`
 
 const Content = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
   font-size: 20px;
   flex-direction: column;
   width: 100%;
@@ -156,11 +180,22 @@ const Content = styled.div`
   margin: 0;
 `;
 
+const SubContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const Title = styled.p`
   font-weight: bold;
   color: #333;
   text-align: center;
   font-size: 22px;
+`;
+
+const SubTitle = styled.p`
+  font-weight: bold;
+  font-size: 18px;
 `;
 
 const ModalFooter = styled.div`
@@ -190,6 +225,20 @@ const ButtonWrap = styled.div`
       background-color: #7e49c8;
     }
   }
+`;
+
+const Sentence = styled.p`
+  color: gray;
+  font-size: 16px;
+`;
+
+const LinkBtn = styled.button`
+  width: 100px;
+  height: 50px;
+  border: none;
+  background: #005ff8;
+  color: white;
+  cursor: pointer;
 `;
 
 export default DetailModal;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { LeftArrow, RightArrow } from "@styled-icons/boxicons-solid/";
 
 const Pager = props => {
   const [minColor, setMinColor] = useState("black");
@@ -22,13 +22,13 @@ const Pager = props => {
   return (
     <Cover>
       <Indicator id="frontIndicator" onClick={props.moveFront}>
-        <IoIosArrowBack size={40} color={minColor} />
+        <LeftArrow size={40} color={minColor} />
       </Indicator>
       <Body>
         <CardImg src={props.img} alt={props.title} />
       </Body>
       <Indicator id="endIndicator" onClick={props.moveEnd}>
-        <IoIosArrowForward size={40} color={maxColor} />
+        <RightArrow size={40} color={maxColor} />
       </Indicator>
     </Cover>
   );
@@ -37,7 +37,7 @@ const Pager = props => {
 const Cover = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 50%;
   margin: 0;
   justify-content: space-between;
   align-items: center;

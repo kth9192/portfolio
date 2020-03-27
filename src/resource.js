@@ -3,9 +3,10 @@ export const projects = [
     id: 0,
     name: "유튜브 클립 저장소",
     img: [
+      process.env.PUBLIC_URL + "youtube-cutter.png",
       process.env.PUBLIC_URL + "youtube-cutter2.png",
-      process.env.PUBLIC_URL + "youtube-cutter2.png",
-      process.env.PUBLIC_URL + "youtube-cutter3.png"
+      process.env.PUBLIC_URL + "youtube-cutter3.png",
+      process.env.PUBLIC_URL + "youtube-cutter4.png"
     ],
     description:
       "유튜브 영상의 특정 시간대를 저장하고 하나의 목록으로 분류해 관리할 수 있는 페이지. ",

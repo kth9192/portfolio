@@ -27,7 +27,6 @@ const SectionBoxA = styled.section`
   display: flex;
   width: 100%;
   height: 60vh;
-  background-color: #f8f8f8;
   align-items: center;
   flex-direction: column;
   float: left;
