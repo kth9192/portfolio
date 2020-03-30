@@ -2,16 +2,18 @@ import React, { Fragment, useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import ReactDOM from "react-dom";
 import Pager from "./pager";
-import { DotSingle } from "@styled-icons/entypo";
+import ProjectItem from "../components/projectItem";
 import { CloseOutline } from "@styled-icons/evaicons-outline";
 import { Pointer } from "styled-icons/boxicons-solid";
+import { Link } from "@styled-icons/boxicons-regular";
+import { Stack } from "@styled-icons/remix-fill";
 
 const DetailModal = props => {
   const ref = useRef();
   useOnClick(ref, props.closeModal);
 
   const [idx, setidx] = useState(0);
-  const [img, setImg] = useState(props.img[0]);
+  const [img, setImg] = useState(null);
   const [limit, setLimit] = useState("front");
 
   const moveFront = e => {
@@ -38,11 +40,10 @@ const DetailModal = props => {
 
   useEffect(() => {
     console.log("====================================");
-    console.log("idx?", idx);
+    console.log("idx?", idx, props);
     console.log("====================================");
-
     setImg(props.img[idx]);
-  }, [idx, props.img]);
+  }, [idx, props, props.img]);
 
   return ReactDOM.createPortal(
     <Fragment>
@@ -53,6 +54,7 @@ const DetailModal = props => {
               <ModalHeader>
                 <Title>{props.title}</Title>
                 <CloseOutline
+                  className="close"
                   size={30}
                   color={"#D9E0EA"}
                   style={{
@@ -65,22 +67,48 @@ const DetailModal = props => {
                 />
               </ModalHeader>
               <Content>
-                <SubTitle>
-                  <DotSingle size={40} color={"#5968E2"} />
-                  설명
-                </SubTitle>
-
                 <SubContent>
-                  <Sentence>{props.description}</Sentence>
-                  <Sentence>{props.stack}</Sentence>
-                  {/* <Pager
+                  {/* <Sentence>{props.description}</Sentence>
+                  <Sentence>{props.stack}</Sentence> */}
+                  <ProjectItem
+                    key={props.id}
+                    id={props.id}
+                    name={props.title}
+                    img={props.img}
+                    description={props.description}
+                    stack={props.stack}
+                  />
+
+                  <Pager
                     img={img}
                     moveFront={moveFront}
                     moveEnd={moveEnd}
                     title={props.title}
                     limitObj={limit}
-                  /> */}
-                  <LinkBtn onClick={console.log(props.url)}>이동하기</LinkBtn>
+                  />
+
+                  <ContentSlice>
+                    <h4>
+                      <CustomStack size="30" />
+                      STACK
+                    </h4>
+
+                    <div style={{ display: "flex", flexDirection: "row" }}>
+                      {props.stack.map(item => {
+                        let tmp = item.replace(/ /g, "_");
+                        return <Chip key={item}>{`#${tmp}`}</Chip>;
+                      })}
+                    </div>
+
+                    <LinkBtn
+                      onClick={e => {
+                        window.location = props.url;
+                      }}
+                    >
+                      <CustomLink size="20" />
+                      이동하기
+                    </LinkBtn>
+                  </ContentSlice>
                 </SubContent>
               </Content>
               <ModalFooter>
@@ -131,6 +159,7 @@ const Background = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 100%;
+  z-index: 100;
 `;
 
 const ModalCover = styled.div`
@@ -142,6 +171,7 @@ const ModalCover = styled.div`
   /* min-width: 400px;
   min-height: 300px; */
   transform: translate(-50%, -50%);
+  z-index: 1000;
 `;
 
 const Modal = styled.div`
@@ -198,6 +228,9 @@ const SubTitle = styled.p`
   font-size: 18px;
 `;
 
+const CustomStack = styled(Stack)`
+  margin-right: 8px;
+`;
 const ModalFooter = styled.div`
   width: 100%;
   height: fit-content;
@@ -227,9 +260,18 @@ const ButtonWrap = styled.div`
   }
 `;
 
-const Sentence = styled.p`
-  color: gray;
-  font-size: 16px;
+const Chip = styled.div`
+  width: fit-content;
+  height: fit-content;
+  padding: 8px 5px;
+  border: none;
+  border-radius: 15px;
+  background: white;
+  font-weight: bold;
+  color: black;
+  margin: 0 8px;
+  font-size: 14px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 `;
 
 const LinkBtn = styled.button`
@@ -239,6 +281,18 @@ const LinkBtn = styled.button`
   background: #005ff8;
   color: white;
   cursor: pointer;
+  margin: 16px 0;
+`;
+
+const CustomLink = styled(Link)`
+  margin-right: 8px;
+`;
+const ContentSlice = styled.div`
+  width: 80%;
+
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
 `;
 
 export default DetailModal;

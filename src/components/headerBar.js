@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 
 import styled, { css } from "styled-components";
-import { Documents } from "@styled-icons/entypo";
 
 function HeaderBar() {
   const whatContainClass = targetClass => {
@@ -71,43 +70,24 @@ function HeaderBar() {
     );
   };
 
-  const goGit = e => {
-    window.location = "https://github.com/kth9192";
-  };
-
   return (
     <Cover className="cover">
-      <LinkBoxContent>
-        <h1>PORTFOLIO</h1>
-      </LinkBoxContent>
       <MenuBar />
-      <LinkBox>
-        <LinkBtn onClick={goGit}>
-          <img src="gitHub-Mark-32px.png" alt="github" />
-        </LinkBtn>
-        {/* /TOOD:이력서로 이동 */}
-
-        <LinkBtn onClick={goGit}>
-          <CustomDocs size="30" />
-        </LinkBtn>
-      </LinkBox>
     </Cover>
   );
 }
 
 const Cover = styled.section`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   width: 100%;
-  height: 10rem;
+  height: 10%;
   float: left;
-  justify-items: center;
+  justify-content: flex-end;
   align-items: center;
+  position: relative;
 
-  /* background-image: url("intro-bg.png"); */
-  border: none;
-  border-bottom: 1px gray solid;
-
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
   img {
     width: 100%;
     height: 100%;
@@ -116,7 +96,7 @@ const Cover = styled.section`
 
 const TopMenu = styled.div`
   display: flex;
-  width: 100%;
+  width: 30%;
   height: fit-content;
   justify-content: space-around;
   align-items: center;
@@ -133,53 +113,6 @@ const NavGrid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
   text-align: center;
-`;
-
-const LinkBox = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const LinkBtn = styled.button`
-  display: flex;
-  width: 4rem;
-  height: fit-content;
-  border: 2px white solid;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-
-  font-size: 16px;
-  cursor: pointer;
-  text-decoration: none;
-
-  img {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    margin: 4px;
-    filter: invert(0.7);
-    transition: all 0.8s ease;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &:hover {
-    color: black;
-    background-color: white;
-    font-weight: bold;
-
-    img {
-      filter: invert(0);
-      transition: all 0.8s ease;
-    }
-    p {
-      text-decoration: underline;
-    }
-  }
 `;
 
 const LinkBoxContent = styled.div`
@@ -211,6 +144,7 @@ const NavItem = styled.div`
       color: #000;
       font-size: 18px;
       font-weight: bold;
+      border-bottom: 1.5px black solid;
     `}
 
   &:hover {
@@ -219,20 +153,6 @@ const NavItem = styled.div`
     font-weight: bold;
     transition: 400ms ease;
     transition-property: background-color;
-  }
-`;
-
-const CustomDocs = styled(Documents)`
-  cursor: pointer;
-  text-decoration: none;
-  color: gray;
-  transition: all 0.8s ease;
-
-  &:hover {
-    color: black;
-    font-weight: bold;
-    filter: invert(0);
-    transition: all 0.8s ease;
   }
 `;
 

@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     html,body,#root {
         padding: 0;
         margin: 0;
-        height:100vh;
+        height:100%;
         z-index:1;
         font-family:나눔고딕, NanumBarunGothic, ng;
     }

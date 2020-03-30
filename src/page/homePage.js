@@ -1,21 +1,34 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Documents } from "@styled-icons/entypo";
 
 class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
+  goGit = e => {
+    window.location = "https://github.com/kth9192";
+  };
+
   render() {
     return (
       <SectionBox>
         <TitleBox>
           <h2>KIM TAE HOON</h2>
+          <h3>Developer Portfolio</h3>
+          <LinkBox>
+            <LinkBtn onClick={this.goGit}>
+              <img src="gitHub-Mark-32px.png" alt="github" />
+            </LinkBtn>
+            {/* /TOOD:이력서로 이동 */}
+
+            <LinkBtn onClick={this.goGit}>
+              <CustomDocs size="30" />
+            </LinkBtn>
+          </LinkBox>
         </TitleBox>
-        <TitleBoxAlt>
-          <p>DEVELOPER</p>
-          <p className="underline">PORTFOLIO</p>
-        </TitleBoxAlt>
       </SectionBox>
     );
   }
@@ -24,9 +37,11 @@ class HomePage extends Component {
 const SectionBox = styled.section`
   display: flex;
   width: 100%;
-  height: 90%;
+  height: 100%;
   justify-content: center;
+  align-items: center;
   float: left;
+
   h1 {
     font-size: 30px;
     text-align: center;
@@ -36,30 +51,79 @@ const SectionBox = styled.section`
 
 const TitleBox = styled.div`
   display: flex;
-  width: 50%;
+  width: 100%;
+  height: 100%;
   justify-content: center;
-  background: black;
   color: #fff;
   align-items: center;
+  flex-direction: column;
+  background: url("./cover.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 
   h2 {
     font-size: 50px;
   }
 `;
 
-const TitleBoxAlt = styled.div`
+const LinkBox = styled.div`
   display: flex;
-  align-items: flex-end;
-  background: white;
-  flex-direction: column;
-  width: 50%;
-  color: #000;
-  font-size: 50px;
-  padding-right: 2rem;
+  justify-content: center;
+  align-items: center;
+`;
 
-  .underline {
-    text-decoration: underline;
+const LinkBtn = styled.button`
+  display: flex;
+  width: 4rem;
+  height: fit-content;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+
+  img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 4px;
+    filter: invert(1);
+    transition: all 0.8s ease;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: black;
+    background-color: white;
+    font-weight: bold;
+
+    img {
+      filter: invert(0);
+      transition: all 0.8s ease;
+    }
+    p {
+      text-decoration: underline;
+    }
   }
 `;
 
+const CustomDocs = styled(Documents)`
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  transition: all 0.8s ease;
+
+  &:hover {
+    color: black;
+    font-weight: bold;
+    filter: invert(0);
+    transition: all 0.8s ease;
+  }
+`;
 export default HomePage;

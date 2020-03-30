@@ -40,6 +40,10 @@ app.use(function(err, req, res, next) {
   next(createError(404));
 });
 
+app.get("/coverImg", function(req, res) {
+  res.sendFile(__dirname, "cover.jpg");
+});
+
 app.use("/", indexRouter);
 
 setInterval(function() {

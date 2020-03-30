@@ -37,7 +37,7 @@ const Pager = props => {
 const Cover = styled.div`
   display: flex;
   width: 100%;
-  height: 50%;
+  height: 30%;
   margin: 0;
   justify-content: space-between;
   align-items: center;
@@ -49,8 +49,8 @@ const Body = styled.div`
 `;
 
 const CardImg = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 150px;
 `;
 
 const Indicator = styled.button`

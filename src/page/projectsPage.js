@@ -1,13 +1,30 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, Fragment } from "react";
 import styled from "styled-components";
 import { projects } from "../resource";
-import ProjectItem from "../components/projectItem";
 import DetailModal from "../components/detailModal";
+import { FolderVideo } from "@styled-icons/entypo/";
+import { Football } from "@styled-icons/boxicons-regular";
 
 class ProjectsPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      thumbnail: {
+        "유튜브 클립 저장소": (
+          <Fragment>
+            {/* <Thumbnail></Thumbnail> */}
+            <FolderVideo size="100" color="red" />
+          </Fragment>
+        ),
+        SquardMaker: (
+          <Fragment>
+            {/* <Thumbnail /> */}
+
+            <Football size="100" color="black" />
+          </Fragment>
+        )
+      }
+    };
   }
 
   render() {
@@ -24,29 +41,32 @@ class ProjectsPage extends Component {
         }
       };
 
-      console.log("====================================");
-      console.log("test", props.img);
-      console.log("====================================");
+      const data = props.data;
 
+      console.log("====================================");
+      console.log("test", data.img);
+      console.log("====================================");
       return (
         <GridCover onClick={openModal}>
-          <GridImg
-            src={props.src}
-            alt={props.alt}
+          <ThumbnailCover>{this.state.thumbnail[data.name]}</ThumbnailCover>
+
+          {/* <GridImg
+            src={data.img[0]}
+            alt={data.alt}
             onClick={this.handleProjectModal}
-          />
+          /> */}
           <Overlay>
-            <GridTitle>{props.title}</GridTitle>
+            <GridTitle>{data.name}</GridTitle>
             <Milestone>자세히</Milestone>
           </Overlay>
           <DetailModal
             isOpen={isModalOpen}
             closeModal={closeModal}
-            title={props.title}
-            img={props.img}
-            description={props.description}
-            url={props.url}
-            stack={props.stack}
+            title={data.name}
+            img={data.img}
+            description={data.description}
+            url={data.url}
+            stack={data.stack}
           />
         </GridCover>
       );
@@ -62,12 +82,13 @@ class ProjectsPage extends Component {
               return (
                 <ProjectOverlayItem
                   key={project.id}
-                  src={process.env.PUBLIC_URL + project.img[0]}
-                  alt={project.name}
-                  title={project.name}
-                  img={project.img}
-                  description={project.description}
-                  stack={project.stack}
+                  data={project}
+                  // src={process.env.PUBLIC_URL + project.img[0]}
+                  // alt={project.name}
+                  // title={project.name}
+                  // img={project.img}
+                  // description={project.description}
+                  // stack={project.stack}
                 />
               );
             })}
@@ -76,18 +97,6 @@ class ProjectsPage extends Component {
       </SectionBoxB>
     );
   }
-}
-
-{
-  /* <ProjectItem
-                key={project.id}
-                id={project.id}
-                name={project.name}
-                img={project.img}
-                description={project.description}
-                stack={project.stack}
-                url={project.url}
-              /> */
 }
 
 const SectionBoxB = styled.section`
@@ -182,7 +191,6 @@ const GridTitle = styled.p`
   width: 100%;
   background: rgba(0, 0, 0, 0.6);
   color: white;
-  text-transform: uppercase;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
@@ -203,6 +211,24 @@ const Milestone = styled.div`
   text-align: center;
   border: 1px white solid;
   transition: all 0.4s linear;
+`;
+
+// const Thumbnail = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 150px;
+//   height: 150px;
+//   border: none;
+//   border-radius: 90px;
+//   position: absolute;
+// `;
+
+const ThumbnailCover = styled.div`
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default ProjectsPage;
