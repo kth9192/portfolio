@@ -60,9 +60,23 @@ const TitleBox = styled.div`
   background: url("./cover.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  z-index: 2;
 
   h2 {
     font-size: 50px;
+  }
+
+  :after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 95%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
   }
 `;
 

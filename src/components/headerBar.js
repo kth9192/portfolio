@@ -80,7 +80,7 @@ function HeaderBar() {
 const Cover = styled.section`
   display: flex;
   width: 100%;
-  height: 10%;
+  height: 5%;
   float: left;
   justify-content: flex-end;
   align-items: center;
@@ -88,6 +88,7 @@ const Cover = styled.section`
 
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
   z-index: 100;
+
   img {
     width: 100%;
     height: 100%;
@@ -100,6 +101,7 @@ const TopMenu = styled.div`
   height: fit-content;
   justify-content: space-around;
   align-items: center;
+  margin-right: 16px;
 
   p {
     font-weight: bold;
