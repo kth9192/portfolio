@@ -13,14 +13,14 @@ class ProjectsPage extends Component {
         "유튜브 클립 저장소": (
           <Fragment>
             {/* <Thumbnail></Thumbnail> */}
-            <FolderVideo size="100" color="red" />
+            <FolderVideo size="50" color="red" />
           </Fragment>
         ),
         SquardMaker: (
           <Fragment>
             {/* <Thumbnail /> */}
 
-            <Football size="100" color="black" />
+            <Football size="50" color="black" />
           </Fragment>
         )
       }
@@ -28,7 +28,7 @@ class ProjectsPage extends Component {
   }
 
   render() {
-    const ProjectOverlayItem = props => {
+    const ProjectCard = props => {
       const [isModalOpen, setModalOpen] = useState(false);
 
       const openModal = () => setModalOpen(true);
@@ -48,8 +48,11 @@ class ProjectsPage extends Component {
       console.log("====================================");
       return (
         <GridCover onClick={openModal}>
-          <ThumbnailCover>{this.state.thumbnail[data.name]}</ThumbnailCover>
-
+          <ThumbnailCover>
+            {this.state.thumbnail[data.name]}
+            <ProjectTitle>{data.name}</ProjectTitle>
+            <p>{data.description}</p>
+          </ThumbnailCover>
           {/* <GridImg
             src={data.img[0]}
             alt={data.alt}
@@ -80,7 +83,7 @@ class ProjectsPage extends Component {
           <ProjectContainer>
             {projects.map(project => {
               return (
-                <ProjectOverlayItem
+                <ProjectCard
                   key={project.id}
                   data={project}
                   // src={process.env.PUBLIC_URL + project.img[0]}
@@ -139,7 +142,6 @@ const GridCover = styled.div`
   height: 360px;
   position: relative;
   border: none;
-  border-radius: 10px;
   transition: all 0.4s ease-in-out;
   overflow: hidden;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
@@ -165,7 +167,7 @@ const Overlay = styled.div`
   flex-direction: column;
   position: absolute;
   filter: alpha(opacity=0);
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 0;
   top: 0;
   left: 0;
@@ -198,6 +200,11 @@ const GridTitle = styled.p`
   transition: all 0.4s linear;
 `;
 
+const ProjectTitle = styled.p`
+  font-size: 18px;
+  font-weight: bold;
+`;
+
 const Milestone = styled.div`
   display: flex;
   width: 100px;
@@ -227,8 +234,10 @@ const Milestone = styled.div`
 const ThumbnailCover = styled.div`
   display: flex;
   height: 100%;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  margin: 3rem;
 `;
 
 export default ProjectsPage;
