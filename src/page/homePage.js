@@ -71,10 +71,11 @@ const TitleBox = styled.div`
     position: absolute;
     left: 0;
     right: 0;
+    top: 100px;
     bottom: 0;
     margin: auto;
     width: 100%;
-    height: 95%;
+    height: 50%;
     background: rgba(0, 0, 0, 0.5);
     z-index: -1;
   }
