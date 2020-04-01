@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { UserTag } from "@styled-icons/fa-solid/";
+import { School } from "@styled-icons/material-rounded/";
+import { Email } from "@styled-icons/evaicons-solid/";
+import { Git } from "@styled-icons/boxicons-logos";
 
 class InfoPage extends Component {
   constructor(props) {
@@ -13,10 +17,21 @@ class InfoPage extends Component {
         <h1>About</h1>
         <SectionSpacer />
         <div>
-          <p>KIM TAE HOON</p>
-          <p>제주대학교 컴퓨터공학전공 학사 졸업 </p>
-          <p>Email : kth9193@gmail.com</p>
-          <p>Github : https://github.com/kth9192</p>
+          <Sentence>
+            <UserTag size="30" style={{ margin: "8px" }} /> <p>KIM TAE HOON</p>
+          </Sentence>
+          <Sentence>
+            <School size="30" style={{ margin: "8px" }} />
+            <p>제주대학교 컴퓨터공학전공 학사 졸업 </p>
+          </Sentence>
+          <Sentence>
+            <Email size="30" style={{ margin: "8px" }} />
+            <p> kth9193@gmail.com</p>
+          </Sentence>
+          <Sentence>
+            <Git size="30" style={{ margin: "8px" }} />
+            <p> https://github.com/kth9192</p>
+          </Sentence>
         </div>
       </SectionBoxA>
     );
@@ -45,6 +60,12 @@ const SectionSpacer = styled.hr`
   width: 300px;
   border-top: 3px solid #e7e7e7;
   text-align: center;
+`;
+
+const Sentence = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 
 export default InfoPage;

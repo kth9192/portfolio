@@ -80,13 +80,13 @@ function HeaderBar() {
 const Cover = styled.section`
   display: flex;
   width: 100%;
-  height: 5%;
+  height: 8%;
   float: left;
   justify-content: flex-end;
   align-items: center;
   position: relative;
 
-  /* box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
   z-index: 100;
 
   img {

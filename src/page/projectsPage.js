@@ -51,13 +51,9 @@ class ProjectsPage extends Component {
           <ThumbnailCover>
             {this.state.thumbnail[data.name]}
             <ProjectTitle>{data.name}</ProjectTitle>
-            <p>{data.description}</p>
+            <p>{data.summary}</p>
           </ThumbnailCover>
-          {/* <GridImg
-            src={data.img[0]}
-            alt={data.alt}
-            onClick={this.handleProjectModal}
-          /> */}
+
           <Overlay>
             <GridTitle>{data.name}</GridTitle>
             <Milestone>자세히</Milestone>

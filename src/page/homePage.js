@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Documents } from "@styled-icons/entypo";
+import { Github } from "@styled-icons/boxicons-logos/";
 
 class HomePage extends Component {
   constructor(props) {
@@ -16,16 +17,24 @@ class HomePage extends Component {
     return (
       <SectionBox>
         <TitleBox>
-          <h2>KIM TAE HOON</h2>
+          <Title>
+            <h2>KIM TAE HOON</h2>
+          </Title>
           <h3>Developer Portfolio</h3>
           <LinkBox>
             <LinkBtn onClick={this.goGit}>
-              <img src="gitHub-Mark-32px.png" alt="github" />
+              {/* <img src="gitHub-Mark-32px.png" alt="github" />
+               */}
+              <CustomGit size="50" />
             </LinkBtn>
             {/* /TOOD:이력서로 이동 */}
 
-            <LinkBtn onClick={this.goGit}>
-              <CustomDocs size="30" />
+            <LinkBtn
+              onClick={e => {
+                window.location.href = "./assets/resume.pdf";
+              }}
+            >
+              <CustomDocs size="50" />
             </LinkBtn>
           </LinkBox>
         </TitleBox>
@@ -81,6 +90,12 @@ const TitleBox = styled.div`
   }
 `;
 
+const Title = styled.div`
+  width: fit-content;
+
+  border-bottom: 2px white solid;
+`;
+
 const LinkBox = styled.div`
   display: flex;
   justify-content: center;
@@ -114,12 +129,13 @@ const LinkBtn = styled.button`
   }
 
   &:hover {
-    color: black;
     background-color: white;
     font-weight: bold;
 
-    img {
+    svg {
+      color: black;
       filter: invert(0);
+      font-weight: bold;
       transition: all 0.8s ease;
     }
     p {
@@ -128,17 +144,18 @@ const LinkBtn = styled.button`
   }
 `;
 
+const CustomGit = styled(Github)`
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  transition: all 0.8s ease;
+`;
+
 const CustomDocs = styled(Documents)`
   cursor: pointer;
   text-decoration: none;
   color: white;
   transition: all 0.8s ease;
-
-  &:hover {
-    color: black;
-    font-weight: bold;
-    filter: invert(0);
-    transition: all 0.8s ease;
-  }
 `;
+
 export default HomePage;
