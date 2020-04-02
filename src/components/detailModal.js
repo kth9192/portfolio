@@ -79,13 +79,13 @@ const DetailModal = props => {
                     stack={props.stack}
                   />
 
-                  <Pager
+                  {/* <Pager
                     img={img}
                     moveFront={moveFront}
                     moveEnd={moveEnd}
                     title={props.title}
                     limitObj={limit}
-                  />
+                  /> */}
 
                   <ContentSlice>
                     <h4>
