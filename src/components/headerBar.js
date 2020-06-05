@@ -22,9 +22,6 @@ function HeaderBar() {
 
   const selectHandler = (e) => {
     const targetClass = [...e.target.classList];
-    console.log('====================================');
-    console.log(targetClass);
-    console.log('====================================');
 
     setActivate(whatContainClass(targetClass));
   };
