@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 function HeaderBar() {
-  const whatContainClass = targetClass => {
-    if (targetClass.includes("home")) {
-      return "home";
-    } else if (targetClass.includes("about")) {
-      return "about";
-    } else if (targetClass.includes("projects")) {
-      return "projects";
+  const whatContainClass = (targetClass) => {
+    if (targetClass.includes('home')) {
+      return 'home';
+    } else if (targetClass.includes('about')) {
+      return 'about';
+    } else if (targetClass.includes('projects')) {
+      return 'projects';
     } else {
-      return "home";
+      return 'home';
     }
   };
 
@@ -20,47 +20,47 @@ function HeaderBar() {
     whatContainClass(window.location.href)
   );
 
-  const selectHandler = e => {
+  const selectHandler = (e) => {
     const targetClass = [...e.target.classList];
-    console.log("====================================");
+    console.log('====================================');
     console.log(targetClass);
-    console.log("====================================");
+    console.log('====================================');
 
     setActivate(whatContainClass(targetClass));
   };
 
   const MenuBar = () => {
-    const moveTo = e => {
-      const target = document.querySelectorAll("." + e.target.className)[1];
+    const moveTo = (e) => {
+      const target = document.querySelectorAll('.' + e.target.className)[1];
       target.scrollIntoView();
     };
 
     return (
-      <TopMenu className="menu">
+      <TopMenu className='menu'>
         <NavGrid>
-          <CustomLink to="/">
+          <CustomLink to='/'>
             <NavItem
-              className="home"
-              onClick={e => selectHandler(e)}
-              selected={activated === "home" ? true : false}
+              className='home'
+              onClick={(e) => selectHandler(e)}
+              selected={activated === 'home' ? true : false}
             >
               Home
             </NavItem>
           </CustomLink>
-          <CustomLink to="/about">
+          <CustomLink to='/about'>
             <NavItem
-              className="about"
-              onClick={e => selectHandler(e)}
-              selected={activated === "about" ? true : false}
+              className='about'
+              onClick={(e) => selectHandler(e)}
+              selected={activated === 'about' ? true : false}
             >
               About
             </NavItem>
           </CustomLink>
-          <CustomLink to="/projects">
+          <CustomLink to='/projects'>
             <NavItem
-              className="projects"
-              onClick={e => selectHandler(e)}
-              selected={activated === "projects" ? true : false}
+              className='projects'
+              onClick={(e) => selectHandler(e)}
+              selected={activated === 'projects' ? true : false}
             >
               Project
             </NavItem>
@@ -71,20 +71,22 @@ function HeaderBar() {
   };
 
   return (
-    <Cover className="cover">
+    <Cover className='cover'>
       <MenuBar />
     </Cover>
   );
 }
 
-const Cover = styled.section`
+const Cover = styled.header`
   display: flex;
   width: 100%;
+
   height: 8%;
   float: left;
   justify-content: flex-end;
   align-items: center;
   position: relative;
+  margin-bottom: 1.5rem;
 
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
   z-index: 100;
@@ -115,6 +117,7 @@ const NavGrid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
   text-align: center;
+  grid-column-gap: 10%;
 `;
 
 const LinkBoxContent = styled.div`
@@ -140,7 +143,7 @@ const NavItem = styled.div`
   height: 2rem;
   background-color: #fff;
 
-  ${props =>
+  ${(props) =>
     props.selected &&
     css`
       color: #000;

@@ -1,51 +1,48 @@
-import React, { Component, useState, Fragment } from "react";
-import styled from "styled-components";
-import { projects } from "../resource";
-import DetailModal from "../components/detailModal";
-import { FolderVideo } from "@styled-icons/entypo/";
-import { Football } from "@styled-icons/boxicons-regular";
+import React, { Component, useState, Fragment } from 'react';
+import styled from 'styled-components';
+import { projects } from '../resource';
+import DetailModal from '../components/detailModal';
+import { FolderVideo } from '@styled-icons/entypo/';
+import { Football } from '@styled-icons/boxicons-regular';
 
 class ProjectsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       thumbnail: {
-        "유튜브 클립 저장소": (
+        '유튜브 클립 저장소': (
           <Fragment>
             {/* <Thumbnail></Thumbnail> */}
-            <FolderVideo size="50" color="red" />
+            <FolderVideo size='50' color='red' />
           </Fragment>
         ),
         SquardMaker: (
           <Fragment>
             {/* <Thumbnail /> */}
 
-            <Football size="50" color="black" />
+            <Football size='50' color='black' />
           </Fragment>
-        )
-      }
+        ),
+      },
     };
   }
 
   render() {
-    const ProjectCard = props => {
+    const ProjectCard = (props) => {
       const [isModalOpen, setModalOpen] = useState(false);
 
       const openModal = () => setModalOpen(true);
-      const closeModal = e => {
+      const closeModal = (e) => {
         e.stopPropagation();
         e.preventDefault();
 
-        if (e.target.classList.contains("close")) {
+        if (e.target.classList.contains('close')) {
           setModalOpen(false);
         }
       };
 
       const data = props.data;
 
-      console.log("====================================");
-      console.log("test", data.img);
-      console.log("====================================");
       return (
         <GridCover onClick={openModal}>
           <ThumbnailCover>
@@ -72,12 +69,12 @@ class ProjectsPage extends Component {
     };
 
     return (
-      <SectionBoxB className="projects">
+      <SectionBoxB className='projects'>
         <h2>PROJECT</h2>
         <SectionSpacer />
         <Content>
           <ProjectContainer>
-            {projects.map(project => {
+            {projects.map((project) => {
               return (
                 <ProjectCard
                   key={project.id}
@@ -189,6 +186,7 @@ const GridTitle = styled.p`
   width: 100%;
   background: rgba(0, 0, 0, 0.6);
   color: white;
+  margin-top: 1rem;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
@@ -205,7 +203,7 @@ const Milestone = styled.div`
   display: flex;
   width: 100px;
   height: 48px;
-  margin-top: 20px;
+  margin-top: 4rem;
   color: white;
   justify-content: center;
   align-items: center;
