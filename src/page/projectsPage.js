@@ -101,11 +101,12 @@ const SectionBoxB = styled.section`
   justify-content: center;
   flex-direction: column;
   float: left;
+  margin-top: 1.5rem;
+
   h2 {
     font-size: 30px;
     text-align: center;
   }
-  margin-bottom: 5rem;
 `;
 
 const SectionSpacer = styled.hr`
