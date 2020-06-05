@@ -88,7 +88,7 @@ const DetailModal = (props) => {
                   /> */}
 
                   <ContentSlice>
-                    <h4>
+                    <h4 style={{ margin: '1rem 0' }}>
                       <CustomStack size='30' />
                       STACK
                     </h4>
