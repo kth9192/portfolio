@@ -46,23 +46,23 @@ app.get('/coverImg', function (req, res) {
 
 app.use('/', indexRouter);
 
-app.get('/*', function (req, res) {
-  res.cookie('session-token', false);
-  // res.cookie("XSRF-TOKEN", req.csrfToken());
-  // res.sendFile(path.join(__dirname, "build", "index.html"));
-  // res.sendFile("index.html");
+// app.get('/*', function (req, res) {
+//   res.cookie('session-token', false);
+//   // res.cookie("XSRF-TOKEN", req.csrfToken());
+//   // res.sendFile(path.join(__dirname, "build", "index.html"));
+//   // res.sendFile("index.html");
 
-  let url;
-  if (req.app.get('env') === 'production') {
-    url = path.join(__dirname, '/index.html');
-  } else {
-    url = path.join(__dirname, '../../build', '/index.html');
-  }
-  // if (!url.startsWith("/app/"))
-  //   // we're on local windows
-  //   url = url.substring(1);
-  res.sendFile(url);
-});
+//   let url;
+//   if (req.app.get('env') === 'production') {
+//     url = path.join(__dirname, '/index.html');
+//   } else {
+//     url = path.join(__dirname, '../../build', '/index.html');
+//   }
+//   // if (!url.startsWith("/app/"))
+//   //   // we're on local windows
+//   //   url = url.substring(1);
+//   res.sendFile(url);
+// });
 
 setInterval(function () {
   https.get('https://kth9192-portfolio.herokuapp.com/');
