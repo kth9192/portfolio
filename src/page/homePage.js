@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { Documents } from "@styled-icons/entypo";
-import { Github } from "@styled-icons/boxicons-logos/";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { Documents } from '@styled-icons/entypo';
+import { Github } from '@styled-icons/boxicons-logos/';
 
 class HomePage extends Component {
   constructor(props) {
@@ -9,8 +9,8 @@ class HomePage extends Component {
     this.state = {};
   }
 
-  goGit = e => {
-    window.location = "https://github.com/kth9192";
+  goGit = (e) => {
+    window.location = 'https://github.com/kth9192';
   };
 
   render() {
@@ -25,16 +25,16 @@ class HomePage extends Component {
             <LinkBtn onClick={this.goGit}>
               {/* <img src="gitHub-Mark-32px.png" alt="github" />
                */}
-              <CustomGit size="50" />
+              <CustomGit size='50' />
             </LinkBtn>
             {/* /TOOD:이력서로 이동 */}
 
             <LinkBtn
-              onClick={e => {
-                window.location.href = "./assets/resume.pdf";
+              onClick={(e) => {
+                window.location.href = './assets/resume.pdf';
               }}
             >
-              <CustomDocs size="50" />
+              <CustomDocs size='50' />
             </LinkBtn>
           </LinkBox>
         </TitleBox>
@@ -66,7 +66,7 @@ const TitleBox = styled.div`
   color: #fff;
   align-items: center;
   flex-direction: column;
-  background: url("./cover.jpg");
+  background: url('./cover.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   z-index: 2;
@@ -76,7 +76,7 @@ const TitleBox = styled.div`
   }
 
   :after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     right: 0;
@@ -92,14 +92,20 @@ const TitleBox = styled.div`
 
 const Title = styled.div`
   width: fit-content;
-
+  margin: 1rem 0;
   border-bottom: 2px white solid;
+
+  h2 {
+    font-weight: bold;
+    padding: 1rem 0;
+  }
 `;
 
 const LinkBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1rem 0;
 `;
 
 const LinkBtn = styled.button`
