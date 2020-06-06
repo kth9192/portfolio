@@ -25,9 +25,10 @@ const Pager = (props) => {
         <LeftArrow size={40} color={minColor} />
       </Indicator>
       <Body>
-        {props.img.forEach((item) => {
-          return <CardImg src={item} alt={props.title} />;
-        })}
+        <CardImg
+          src={`${window.location.protocol}//${window.location.host}/${props.img}`}
+          alt={props.title}
+        />
       </Body>
       <Indicator id='endIndicator' onClick={props.moveEnd}>
         <RightArrow size={40} color={maxColor} />
@@ -39,7 +40,7 @@ const Pager = (props) => {
 const Cover = styled.div`
   display: ${(props) => (props.isOther ? 'flex' : 'none')};
   width: 100%;
-  height: 30%;
+  height: 80%;
   margin: 0;
   justify-content: space-between;
   align-items: center;
@@ -47,12 +48,14 @@ const Cover = styled.div`
 `;
 
 const Body = styled.div`
+  display: flex;
   bottom: 0;
+  justify-content: center;
 `;
 
 const CardImg = styled.img`
-  width: 300px;
-  height: 150px;
+  width: 30%;
+  height: 50%;
 `;
 
 const Indicator = styled.button`

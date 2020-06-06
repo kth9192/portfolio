@@ -30,7 +30,7 @@ let root;
 if (app.get('env') === 'development') {
   root = path.join(__dirname, '../../build');
 } else {
-  root = path.join(__dirname, '/');
+  root = path.join(__dirname, '/public');
 }
 app.use(express.static(root));
 

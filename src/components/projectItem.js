@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import DetailBtn from './detailBtn';
 import { Web } from '@styled-icons/material/';
 
-function ProjectItem({ name, img, description }) {
+function ProjectItem({ name, img, description, isOther }) {
   return (
-    <ProjectBox>
+    <ProjectBox isOther={isOther}>
       <SubSubject>
         <CustomWeb size={30} style={{ marginRight: '8px' }} />
         <h3>{name}</h3>
@@ -17,6 +17,7 @@ function ProjectItem({ name, img, description }) {
 }
 
 const ProjectBox = styled.div`
+  display: ${(props) => (props.isOther ? 'none' : 'flex')};
   width: 80%;
   height: fit-content;
   /* border-bottom: 1px solid black; */

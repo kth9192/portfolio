@@ -21,9 +21,6 @@ const DetailModal = (props) => {
     e.preventDefault();
     if (idx - 1 >= 0) {
       setidx(idx - 1);
-      setLimit(null);
-    } else {
-      setLimit('front');
     }
   };
 
@@ -32,17 +29,19 @@ const DetailModal = (props) => {
     e.preventDefault();
     if (idx + 1 < props.img.length) {
       setidx(idx + 1);
-      setLimit(null);
-    } else {
-      setLimit('end');
     }
   };
 
   useEffect(() => {
-    console.log('====================================');
-    console.log('idx?', idx, props);
-    console.log('====================================');
     setImg(props.img[idx]);
+
+    if (idx === 0) {
+      setLimit('front');
+    } else if (idx === props.img.length - 1) {
+      setLimit('end');
+    } else {
+      setLimit(null);
+    }
   }, [idx, props, props.img]);
 
   return ReactDOM.createPortal(
@@ -77,10 +76,11 @@ const DetailModal = (props) => {
                     img={props.img}
                     description={props.description}
                     stack={props.stack}
+                    isOther={props.isOther}
                   />
 
                   <Pager
-                    img={props.img}
+                    img={img}
                     moveFront={moveFront}
                     moveEnd={moveEnd}
                     title={props.title}
@@ -214,6 +214,7 @@ const ModalHeader = styled.div`
   align-items: center;
   border-bottom: 1px solid #bebebe;
   height: 10%;
+  margin-bottom: 1rem;
 `;
 
 const Content = styled.div`
@@ -222,7 +223,7 @@ const Content = styled.div`
   font-size: 20px;
   flex-direction: column;
   width: 100%;
-  height: 80%;
+  height: 100%;
   margin: 0;
 `;
 
