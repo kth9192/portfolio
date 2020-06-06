@@ -62,11 +62,12 @@ const TitleBox = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  margin: 0;
   justify-content: center;
   color: #fff;
   align-items: center;
   flex-direction: column;
-  background: url('./cover.jpg');
+  background: url('./laptop.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   z-index: 2;

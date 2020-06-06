@@ -1,6 +1,6 @@
 import React, { Component, useState, Fragment } from 'react';
 import styled from 'styled-components';
-import { projects } from '../resource';
+import { projects, otherProject } from '../resource';
 import DetailModal from '../components/detailModal';
 import { FolderVideo } from '@styled-icons/entypo/';
 import { Football } from '@styled-icons/boxicons-regular';
@@ -63,6 +63,7 @@ class ProjectsPage extends Component {
             description={data.description}
             url={data.url}
             stack={data.stack}
+            isOther={props.isOther}
           />
         </GridCover>
       );
@@ -79,12 +80,26 @@ class ProjectsPage extends Component {
                 <ProjectCard
                   key={project.id}
                   data={project}
+                  isOther={false}
                   // src={process.env.PUBLIC_URL + project.img[0]}
                   // alt={project.name}
                   // title={project.name}
                   // img={project.img}
                   // description={project.description}
                   // stack={project.stack}
+                />
+              );
+            })}
+          </ProjectContainer>
+          <Divider>- OTHER -</Divider>
+          <ProjectContainer>
+            {otherProject.map((project) => {
+              return (
+                <ProjectCard
+                  key={project.id}
+                  data={project}
+                  src={process.env.PUBLIC_URL + project.img[0]}
+                  isOther={true}
                 />
               );
             })}
@@ -122,12 +137,13 @@ const Content = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding: 8px;
 `;
 
 const ProjectContainer = styled.div`
-  display: inline-grid;
-  grid-template-columns: auto auto auto;
+  display: grid;
+  grid-template-columns: auto auto;
   grid-gap: 1rem;
 `;
 
@@ -198,6 +214,7 @@ const GridTitle = styled.p`
 const ProjectTitle = styled.p`
   font-size: 18px;
   font-weight: bold;
+  margin: 1rem 0;
 `;
 
 const Milestone = styled.div`
@@ -233,6 +250,14 @@ const ThumbnailCover = styled.div`
   flex-direction: column;
 
   margin: 3rem;
+
+  p {
+    margin: 1rem 0;
+  }
+`;
+
+const Divider = styled.p`
+  margin: 4rem 0;
 `;
 
 export default ProjectsPage;

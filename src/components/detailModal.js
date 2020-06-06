@@ -79,13 +79,14 @@ const DetailModal = (props) => {
                     stack={props.stack}
                   />
 
-                  {/* <Pager
-                    img={img}
+                  <Pager
+                    img={props.img}
                     moveFront={moveFront}
                     moveEnd={moveEnd}
                     title={props.title}
                     limitObj={limit}
-                  /> */}
+                    isOther={props.isOther}
+                  />
 
                   <ContentSlice>
                     <h4 style={{ margin: '1rem 0' }}>
@@ -107,6 +108,7 @@ const DetailModal = (props) => {
                     </div>
 
                     <LinkBtn
+                      url={props.url}
                       onClick={(e) => {
                         window.location = props.url;
                       }}
@@ -297,6 +299,7 @@ const LinkBtn = styled.button`
   color: white;
   cursor: pointer;
   margin: 4rem 0;
+  visibility: ${(props) => (props.url ? 'visible' : 'hidden')};
 `;
 
 const CustomLink = styled(Link)`

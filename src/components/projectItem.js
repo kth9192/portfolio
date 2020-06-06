@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import DetailBtn from "./detailBtn";
-import { Web } from "@styled-icons/material/";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import DetailBtn from './detailBtn';
+import { Web } from '@styled-icons/material/';
 
 function ProjectItem({ name, img, description }) {
   return (
     <ProjectBox>
       <SubSubject>
-        <CustomWeb size={30} style={{ marginRight: "8px" }} />
+        <CustomWeb size={30} style={{ marginRight: '8px' }} />
         <h3>{name}</h3>
       </SubSubject>
       <p>{description}</p>
@@ -44,7 +44,7 @@ const CustomWeb = styled(Web)`
 ProjectItem.propTypes = {
   name: PropTypes.string.isRequired,
   img: PropTypes.arrayOf(PropTypes.string).isRequired,
-  description: PropTypes.string
+  description: PropTypes.string,
 };
 
 export default ProjectItem;

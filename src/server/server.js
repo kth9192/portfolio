@@ -41,7 +41,7 @@ app.use(function (err, req, res, next) {
 });
 
 app.get('/coverImg', function (req, res) {
-  res.sendFile(__dirname, 'cover.jpg');
+  res.sendFile(__dirname, 'laptop.jpg');
 });
 
 app.use('/', indexRouter);

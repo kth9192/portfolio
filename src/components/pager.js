@@ -1,33 +1,35 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { LeftArrow, RightArrow } from "@styled-icons/boxicons-solid/";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { LeftArrow, RightArrow } from '@styled-icons/boxicons-solid/';
 
-const Pager = props => {
-  const [minColor, setMinColor] = useState("black");
-  const [maxColor, setMaxColor] = useState("black");
+const Pager = (props) => {
+  const [minColor, setMinColor] = useState('black');
+  const [maxColor, setMaxColor] = useState('black');
 
   useEffect(() => {
-    if (props.limitObj === "front") {
-      setMinColor("gray");
-      setMaxColor("black");
-    } else if (props.limitObj === "end") {
-      setMinColor("black");
-      setMaxColor("gray");
+    if (props.limitObj === 'front') {
+      setMinColor('gray');
+      setMaxColor('black');
+    } else if (props.limitObj === 'end') {
+      setMinColor('black');
+      setMaxColor('gray');
     } else {
-      setMinColor("black");
-      setMaxColor("black");
+      setMinColor('black');
+      setMaxColor('black');
     }
   }, [maxColor, props.limitObj]);
 
   return (
-    <Cover>
-      <Indicator id="frontIndicator" onClick={props.moveFront}>
+    <Cover isOther={props.isOther}>
+      <Indicator id='frontIndicator' onClick={props.moveFront}>
         <LeftArrow size={40} color={minColor} />
       </Indicator>
       <Body>
-        <CardImg src={props.img} alt={props.title} />
+        {props.img.forEach((item) => {
+          return <CardImg src={item} alt={props.title} />;
+        })}
       </Body>
-      <Indicator id="endIndicator" onClick={props.moveEnd}>
+      <Indicator id='endIndicator' onClick={props.moveEnd}>
         <RightArrow size={40} color={maxColor} />
       </Indicator>
     </Cover>
@@ -35,7 +37,7 @@ const Pager = props => {
 };
 
 const Cover = styled.div`
-  display: flex;
+  display: ${(props) => (props.isOther ? 'flex' : 'none')};
   width: 100%;
   height: 30%;
   margin: 0;
