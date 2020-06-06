@@ -96,6 +96,7 @@ const Cover = styled.header`
 const TopMenu = styled.div`
   display: flex;
   width: 30%;
+  min-width: 200px;
   height: fit-content;
   justify-content: space-around;
   align-items: center;
@@ -113,7 +114,6 @@ const NavGrid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
   text-align: center;
-  grid-column-gap: 10%;
 `;
 
 const LinkBoxContent = styled.div`
@@ -136,6 +136,7 @@ const NavItem = styled.div`
   align-items: center;
   cursor: pointer;
   color: gray;
+
   height: 2rem;
   background-color: #fff;
 
