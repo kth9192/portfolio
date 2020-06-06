@@ -46,7 +46,7 @@ app.get('/coverImg', function (req, res) {
 
 // app.use('/', indexRouter);
 
-app.get('/', function (req, res) {
+app.get('/*', function (req, res) {
   res.cookie('session-token', false);
   // res.cookie("XSRF-TOKEN", req.csrfToken());
   // res.sendFile(path.join(__dirname, "build", "index.html"));
