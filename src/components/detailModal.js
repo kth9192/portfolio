@@ -94,18 +94,12 @@ const DetailModal = (props) => {
                       STACK
                     </h4>
 
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        width: '100%',
-                      }}
-                    >
+                    <StackBody>
                       {props.stack.map((item) => {
                         let tmp = item.replace(/ /g, '_');
                         return <Chip key={item}>{`#${tmp}`}</Chip>;
                       })}
-                    </div>
+                    </StackBody>
 
                     <LinkBtn
                       url={props.url}
@@ -178,6 +172,7 @@ const ModalCover = styled.div`
   top: 50%;
   left: 50%;
   width: 90%;
+  min-width: 270px;
   height: 40rem;
   /* min-width: 400px;
   min-height: 300px; */
@@ -209,7 +204,6 @@ const Modal = styled.div`
 const ModalHeader = styled.div`
   display: flex;
   width: 100%;
-
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid #bebebe;
@@ -249,6 +243,7 @@ const SubTitle = styled.p`
 const CustomStack = styled(Stack)`
   margin-right: 8px;
 `;
+
 const ModalFooter = styled.div`
   width: 100%;
   height: fit-content;
@@ -287,7 +282,7 @@ const Chip = styled.div`
   background: white;
   font-weight: bold;
   color: black;
-  margin: 0 8px;
+  margin: 0.2rem 0.5rem;
   font-size: 14px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 `;
@@ -306,12 +301,23 @@ const LinkBtn = styled.button`
 const CustomLink = styled(Link)`
   margin-right: 8px;
 `;
+
 const ContentSlice = styled.div`
-  width: 80%;
-  margin: 4rem 0;
   display: flex;
+  width: 80%;
+  min-height: 200px;
+  margin: 4rem 0;
   justify-content: flex-start;
   flex-direction: column;
+  bottom: 0;
+`;
+
+const StackBody = styled.div`
+  display: flex;
+  width: 100%;
+  min-width: 230px;
+  min-height: 100px;
+  flex-wrap: wrap;
 `;
 
 export default DetailModal;

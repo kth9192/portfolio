@@ -20,7 +20,8 @@ const ProjectBox = styled.div`
   display: ${(props) => (props.isOther ? 'none' : 'flex')};
   width: 80%;
   height: fit-content;
-  /* border-bottom: 1px solid black; */
+  flex-direction: column;
+
   margin: 1rem 10px;
   img {
     width: 18.75rem;

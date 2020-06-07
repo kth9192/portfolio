@@ -41,6 +41,7 @@ const Cover = styled.div`
   display: ${(props) => (props.isOther ? 'flex' : 'none')};
   width: 100%;
   height: 80%;
+  max-height: 350px;
   margin: 0;
   justify-content: space-between;
   align-items: center;
