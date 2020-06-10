@@ -96,9 +96,6 @@ const DetailModal = (props) => {
 
                     <StackBody>
                       {props.stack.map((item) => {
-                        console.log('====================================');
-                        console.log(item);
-                        console.log('====================================');
                         let tmp = item.replace(/ /g, '_');
                         return <Chip key={item}>{`#${tmp}`}</Chip>;
                       })}
@@ -140,9 +137,6 @@ function useOnClick(ref, handler) {
     const listener = (event) => {
       // Do nothing if clicking ref's element or descendent elements
       if (!ref.current || ref.current.contains(event.target)) {
-        console.log('====================================');
-        console.log(ref);
-        console.log('====================================');
         return;
       }
 

@@ -9,7 +9,6 @@ router.get('/', function (req, res, next) {
   } else {
     url = path.join(__dirname, '../../../build', '/index.html');
   }
-  console.log('위치', url);
   res.sendFile(url);
 });
 
