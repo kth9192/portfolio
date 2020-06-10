@@ -96,6 +96,9 @@ const DetailModal = (props) => {
 
                     <StackBody>
                       {props.stack.map((item) => {
+                        console.log('====================================');
+                        console.log(item);
+                        console.log('====================================');
                         let tmp = item.replace(/ /g, '_');
                         return <Chip key={item}>{`#${tmp}`}</Chip>;
                       })}

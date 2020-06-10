@@ -18,6 +18,7 @@ export const projects = [
       'react hook',
       'grahql apollo',
       'JWT',
+      'MYSQL',
     ],
     url: 'http://youtube-cutter.herokuapp.com/',
   },
