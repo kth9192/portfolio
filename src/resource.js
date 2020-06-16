@@ -19,6 +19,7 @@ export const projects = [
       'grahql apollo',
       'JWT',
       'MYSQL',
+      'Styled-Components',
     ],
     url: 'http://youtube-cutter.herokuapp.com/',
   },
