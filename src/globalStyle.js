@@ -6,4 +6,11 @@ export const GlobalStyle = createGlobalStyle`
   html,body{
     height:100vh;
   }
+
+  section{
+    width:90%;
+  }
+  hr{
+    width:80%;
+  }
 `

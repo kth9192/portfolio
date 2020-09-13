@@ -7,7 +7,7 @@ import { Git } from "@styled-icons/boxicons-logos"
 
 function InfoSection() {
   return (
-    <SectionBoxA className="about">
+    <Cover className="about">
       <h1>About</h1>
       <SectionSpacer />
       <div>
@@ -27,20 +27,23 @@ function InfoSection() {
           <p> https://github.com/kth9192</p>
         </Sentence>
       </div>
-    </SectionBoxA>
+    </Cover>
   )
 }
 
-const SectionBoxA = styled.section`
+const Cover = styled.section`
   display: flex;
-  width: 100%;
-  height: 60vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  background-color: #f8f5f0;
+  border-radius: 15px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   float: left;
   text-align: center;
   margin-top: 1.5rem;
+
   h1 {
     font-size: 30px;
     text-align: center;

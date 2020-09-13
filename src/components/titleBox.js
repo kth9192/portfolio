@@ -53,7 +53,11 @@ const TitleContainer = styled.span`
   position: absolute;
   z-index: 3;
   h2 {
-    font-size: 50px;
+    font-size: 2rem;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 3.125rem;
+    }
   }
   :after {
     content: "";

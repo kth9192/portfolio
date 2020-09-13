@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
-import HeaderBar from "./header"
+import HeaderBar from "./headerBar"
 import TitleBox from "../components/titleBox"
 import { GlobalStyle } from "../globalStyle"
 
@@ -33,7 +33,6 @@ const Layout = ({ children }) => {
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with
-        {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer>
     </Cover>
@@ -43,6 +42,13 @@ const Layout = ({ children }) => {
 const Cover = styled.div`
   width: 100%;
   height: 100vh;
+
+  main {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
 `
 
 Layout.propTypes = {
