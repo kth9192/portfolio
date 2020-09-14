@@ -11,6 +11,7 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+        plugins: [`gatsby-transformer-sharp`, `gatsby-plugin-sharp`],
       },
     },
     `gatsby-transformer-json`,
@@ -20,6 +21,7 @@ module.exports = {
         name: `datas`,
         path: `${__dirname}/src/data`,
       },
+      plugins: [`gatsby-transformer-json`],
     },
     `gatsby-transformer-sharp`,
     "gatsby-plugin-styled-components",

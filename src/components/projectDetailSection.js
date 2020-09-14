@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { projects } from "../data/resource"
 
 const ProjectItem = (name, img, summary, stack, url) => {
   console.log(name, img, summary, stack, url)
@@ -9,16 +8,30 @@ const ProjectItem = (name, img, summary, stack, url) => {
 }
 
 function ProjectDetailSection(props) {
-  //   const data = useStaticQuery(graphql`
-
-  //   `)
+  const data = useStaticQuery(graphql`
+    query {
+      allProjectInfosJson {
+        edges {
+          node {
+            name
+            stack
+            summary
+            url
+            img
+            id
+            description
+          }
+        }
+      }
+    }
+  `)
 
   return (
     <>
       <Cover>
         <SectionSpacer />
-        {projects.map(project => (
-          <ProjectItem {...project} />
+        {data.allProjectInfosJson.edges.map(project => (
+          <div key={project.node.id}>{project.node.name}</div>
         ))}
       </Cover>
     </>

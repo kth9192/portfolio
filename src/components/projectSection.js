@@ -2,18 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import { Web } from "@styled-icons/material/"
 import ProjectCard from "./projectCard"
-import { projects } from "../data/resource"
 
 function ProjectSection() {
   return (
     <Cover>
       <h1>Projects</h1>
       <SectionSpacer />
-      <GridContainer>
-        {projects.map(project => (
-          <ProjectCard key={project.id} data={project} />
-        ))}
-      </GridContainer>
+      <GridContainer></GridContainer>
     </Cover>
   )
 }
