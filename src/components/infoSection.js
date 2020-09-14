@@ -49,6 +49,9 @@ const Cover = styled.section`
     font-size: 30px;
     text-align: center;
   }
+  @media only screen and (min-width: 768px) {
+    width: 40%;
+  }
 `
 
 const SectionSpacer = styled.hr`

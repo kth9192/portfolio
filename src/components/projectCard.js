@@ -3,7 +3,8 @@ import styled from "styled-components"
 import Media from "react-media"
 import ProjectInfoModal from "./projectInfoModal"
 
-const ProjectCard = ({ data }) => {
+const ProjectCard = data => {
+  console.log("info", data)
   return (
     <GridCover>
       <Media
@@ -65,8 +66,6 @@ const GridCover = styled.div`
 
 const ThumbnailCover = styled.div`
   display: flex;
-  width: 100%;
-  height: 100%;
   justify-content: center;
   align-items: center;
   flex-direction: column;

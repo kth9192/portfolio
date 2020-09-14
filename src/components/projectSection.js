@@ -1,14 +1,37 @@
 import React from "react"
 import styled from "styled-components"
 import { Web } from "@styled-icons/material/"
+import { useStaticQuery, graphql } from "gatsby"
 import ProjectCard from "./projectCard"
 
 function ProjectSection() {
+  const data = useStaticQuery(graphql`
+    query {
+      allProjectInfosJson {
+        edges {
+          node {
+            name
+            stack
+            summary
+            url
+            img
+            id
+            description
+          }
+        }
+      }
+    }
+  `)
   return (
     <Cover>
       <h1>Projects</h1>
       <SectionSpacer />
-      <GridContainer></GridContainer>
+      <GridContainer>
+        {data.allProjectInfosJson.edges.map(project => {
+          console.log(project)
+          return <ProjectCard key={project.node.id} {...project.node} />
+        })}
+      </GridContainer>
     </Cover>
   )
 }
