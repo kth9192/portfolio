@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
       <TitleBox />
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()}, Built with
+        <div id="modal" />© {new Date().getFullYear()}, Built with
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer>
     </Cover>
@@ -48,6 +48,27 @@ const Cover = styled.div`
     width: 100%;
     align-items: center;
     flex-direction: column;
+  }
+
+  footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1rem;
+    min-height: 10%;
+    background-color: #27303a;
+    color: white;
+    padding: 1rem;
+
+    a,
+    a:hover,
+    a:visited,
+    a:active {
+      color: white;
+    }
+    a.selected {
+      color: white;
+    }
   }
 `
 

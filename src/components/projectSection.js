@@ -2,11 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import { Web } from "@styled-icons/material/"
 import ProjectCard from "./projectCard"
-import { projects } from "../resource"
+import { projects } from "../data/resource"
 
 function ProjectSection() {
   return (
     <Cover>
+      <h1>Projects</h1>
+      <SectionSpacer />
       <GridContainer>
         {projects.map(project => (
           <ProjectCard key={project.id} data={project} />
@@ -20,21 +22,34 @@ const Cover = styled.section`
   display: flex;
   height: 40%;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   float: left;
   margin-top: 1.5rem;
-
+  h1 {
+    font-size: 30px;
+    text-align: center;
+  }
   h2 {
     font-size: 30px;
     text-align: center;
   }
 `
+const SectionSpacer = styled.hr`
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  width: 50%;
+  border-top: 3px solid #e7e7e7;
+  text-align: center;
+`
 
 const GridContainer = styled.span`
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-columns: minmax(auto, 20%);
-  margin: 0.5rem;
+  justify-items: center;
   grid-gap: 0.5rem;
 
   @media only screen and (min-width: 768px) {

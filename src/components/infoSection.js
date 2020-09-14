@@ -12,7 +12,8 @@ function InfoSection() {
       <SectionSpacer />
       <div>
         <Sentence>
-          <UserTag size="30" style={{ margin: "8px" }} /> <p>KIM TAE HOON</p>
+          <UserTag size="30" style={{ margin: "8px" }} />
+          <p>김태훈</p>
         </Sentence>
         <Sentence>
           <School size="30" style={{ margin: "8px" }} />
@@ -54,7 +55,7 @@ const SectionSpacer = styled.hr`
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 0;
-  width: 300px;
+  width: 50%;
   border-top: 3px solid #e7e7e7;
   text-align: center;
 `

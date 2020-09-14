@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import Media from "react-media"
+import ProjectInfoModal from "./projectInfoModal"
 
 const ProjectCard = ({ data }) => {
   return (
@@ -33,7 +34,11 @@ const GridCover = styled.div`
   border: none;
   transition: all 0.4s ease-in-out;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
+  align-items: center;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 
   &:hover {
     img {
@@ -44,6 +49,11 @@ const GridCover = styled.div`
       filter: alpha(opacity=100);
       transform: translatey(0);
     }
+  }
+
+  @media only screen and (min-width: 768px) {
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   &:after {
@@ -57,16 +67,19 @@ const ThumbnailCover = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  /* position: absolute; */
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   margin: 0.5rem;
+  font-size: 1.25rem;
+
   p {
     margin: 1rem 0;
   }
 
   @media only screen and (min-width: 768px) {
     margin: 2rem;
+    align-items: flex-start;
   }
 `
 
