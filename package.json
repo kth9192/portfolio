@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@mdx-js/mdx": "^1.6.17",
     "add": "^2.0.6",
     "babel-plugin-styled-components": "^1.11.1",
     "gatsby": "^2.24.54",
@@ -16,7 +17,7 @@
     "gatsby-plugin-sharp": "^2.6.32",
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-source-filesystem": "^2.3.28",
-    "gatsby-transformer-json": "^2.4.11",
+    "gatsby-transformer-json": "^2.4.12",
     "gatsby-transformer-sharp": "^2.5.14",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",

@@ -2,12 +2,23 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
-const ProjectItem = (name, img, summary, stack, url) => {
+const ProjectDetailItem = ({ name, img, summary, stack, url }) => {
   console.log(name, img, summary, stack, url)
-  return <div></div>
+  return (
+    <ProjectItemCover>
+      <span>
+        <img src={`http://localhost:8000/${url}`} />
+      </span>
+      <span>
+        <h3>{name}</h3>
+        <p>{summary}</p>
+        <p>{url}</p>
+      </span>
+    </ProjectItemCover>
+  )
 }
 
-function ProjectDetailSection(props) {
+function ProjectDetailSection() {
   const data = useStaticQuery(graphql`
     query {
       allProjectInfosJson {
@@ -27,14 +38,13 @@ function ProjectDetailSection(props) {
   `)
 
   return (
-    <>
-      <Cover>
-        <SectionSpacer />
-        {data.allProjectInfosJson.edges.map(project => (
-          <div key={project.node.id}>{project.node.name}</div>
-        ))}
-      </Cover>
-    </>
+    <Cover>
+      <SectionSpacer />
+      {data &&
+        data.allProjectInfosJson.edges.map(project => {
+          return <ProjectDetailItem key={project.node.id} {...project.node} />
+        })}
+    </Cover>
   )
 }
 
@@ -62,6 +72,10 @@ const SectionSpacer = styled.hr`
   width: 100%;
   border-top: 3px solid #e7e7e7;
   text-align: center;
+`
+
+const ProjectItemCover = styled.div`
+  display: flex;
 `
 
 export default ProjectDetailSection

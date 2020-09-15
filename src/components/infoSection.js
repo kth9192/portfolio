@@ -17,7 +17,7 @@ function InfoSection() {
         </Sentence>
         <Sentence>
           <School size="30" style={{ margin: "8px" }} />
-          <p>제주대학교 컴퓨터공학전공 학사 졸업 </p>
+          <p>제주대학교 컴퓨터공학전공</p>
         </Sentence>
         <Sentence>
           <Email size="30" style={{ margin: "8px" }} />

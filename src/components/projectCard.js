@@ -37,6 +37,7 @@ const GridCover = styled.div`
   overflow: hidden;
   width: 100%;
   height: 100%;
+  justify-content: center;
   align-items: center;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
@@ -66,10 +67,10 @@ const GridCover = styled.div`
 
 const ThumbnailCover = styled.div`
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 0.5rem;
   font-size: 1.25rem;
 
   p {
@@ -124,12 +125,15 @@ const GridTitle = styled.p`
 `
 
 const ProjectTitle = styled.p`
+  font-size: 16px;
+  font-weight: bold;
+
   @media only screen and (min-width: 768px) {
     font-size: 18px;
+    width: 100%;
+    margin: 1rem 0;
+    font-weight: bold;
   }
-
-  font-weight: bold;
-  margin: 1rem 0;
 `
 
 const Milestone = styled.div`
