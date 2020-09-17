@@ -1,14 +1,44 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, StaticQuery } from "gatsby"
+import Img from "gatsby-image"
+
+const getImages = imgName => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          allImageSharp {
+            edges {
+              node {
+                fluid(maxWidth: 500) {
+                  ...GatsbyImageSharpFluid
+                  originalName
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={data => {
+        const image = data.allImageSharp.edges.find(
+          edge => edge.node.fluid.originalName === imgName
+        )
+        console.log("test", image)
+        if (!image) {
+          return null
+        }
+        return <Img fluid={image.node.fluid} />
+      }}
+    />
+  )
+}
 
 const ProjectDetailItem = ({ name, img, summary, stack, url }) => {
   console.log(name, img, summary, stack, url)
   return (
     <ProjectItemCover>
-      <span>
-        <img src={`http://localhost:8000/${url}`} />
-      </span>
+      <span>{getImages(img[0])}</span>
       <span>
         <h3>{name}</h3>
         <p>{summary}</p>

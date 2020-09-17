@@ -1,16 +1,33 @@
 import React from "react"
 import styled from "styled-components"
 import { Github } from "@styled-icons/simple-icons"
-import Img from "./image"
+import Img from "gatsby-image"
+import { useStaticQuery, graphql } from "gatsby"
 
 const goGit = e => {
   window.location = "https://github.com/kth9192"
 }
 
+export const BgImg = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "laptop.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 2000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
+  return <StyledImg fluid={data.placeholderImage.childImageSharp.fluid} />
+}
+
 function TitleBox() {
   return (
     <Cover>
-      <Img />
+      <BgImg />
       <TitleContainer>
         <Title>
           <h2>KIM TAE HOON</h2>
@@ -39,6 +56,11 @@ const Cover = styled.section`
     text-align: center;
   }
   margin-bottom: 5rem;
+`
+
+const StyledImg = styled(Img)`
+  width: 100%;
+  height: 100%;
 `
 
 const TitleContainer = styled.span`
