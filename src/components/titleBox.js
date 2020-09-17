@@ -20,7 +20,9 @@ export const BgImg = () => {
       }
     }
   `)
-
+  console.log("====================================")
+  console.log(data.placeholderImage)
+  console.log("====================================")
   return <StyledImg fluid={data.placeholderImage.childImageSharp.fluid} />
 }
 
