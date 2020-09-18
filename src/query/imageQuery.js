@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-export function GetImage({ title, width, height }) {
+export function GetImage({ title }) {
   const data = useStaticQuery(graphql`
     query {
       allImageSharp {
@@ -10,23 +10,21 @@ export function GetImage({ title, width, height }) {
           node {
             fluid {
               ...GatsbyImageSharpFluid
+              originalName
             }
           }
         }
       }
     }
   `)
-  const image = data.allImageSharp.edges.find(
-    edge => edge.node.fluid.originalName === title
-  )
+
+  const image = data.allImageSharp.edges.find(edge => {
+    console.log(edge.node.fluid, title)
+    return edge.node.fluid.originalName === title
+  })
   if (!image) {
     return null
   }
-  const overrideImageProps = {
-    ...image.node.fluid,
-    width,
-    height,
-  }
 
-  return <Img fluid={overrideImageProps} />
+  return <Img fluid={image.node.fluid} />
 }

@@ -6,7 +6,9 @@ export const GlobalStyle = createGlobalStyle`
   html,body{
     height:100vh;
   }
-
+  div{
+    width:100%;
+  }
   section{
     width:90%;
   }

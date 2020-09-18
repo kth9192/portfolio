@@ -11,7 +11,7 @@ function ProjectSection() {
         edges {
           node {
             name
-            stack
+            stacks
             summary
             url
             img
@@ -28,7 +28,7 @@ function ProjectSection() {
       <SectionSpacer />
       <GridContainer>
         {data.allProjectInfosJson.edges.map(project => {
-          console.log(project)
+          console.log("project", project)
           return <ProjectCard key={project.node.id} {...project.node} />
         })}
       </GridContainer>

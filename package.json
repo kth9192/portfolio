@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.17",
+    "@styled-icons/ionicons-solid": "^10.18.0",
     "add": "^2.0.6",
     "babel-plugin-styled-components": "^1.11.1",
     "gatsby": "^2.24.54",
@@ -37,7 +38,7 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "yarn && gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

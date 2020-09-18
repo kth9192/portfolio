@@ -2,35 +2,49 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import Media from "react-media"
 import ProjectInfoModal from "./projectInfoModal"
+import { Football, LogoYoutube } from "@styled-icons/ionicons-solid/"
+import { Cut } from "@styled-icons/ionicons-sharp/"
 
 const ProjectCard = data => {
   console.log("info", data)
   return (
-    <GridCover>
-      <Media
-        queries={{
-          small: "(max-width: 767px)",
-          medium: "(min-width: 768px) and (max-width: 1199px)",
-          large: "(min-width: 1200px)",
-        }}
-      >
-        {matches => (
-          <ThumbnailCover className="content">
-            <ProjectTitle>{data.name}</ProjectTitle>
-            {!matches.small && <p>{data.summary}</p>}
-          </ThumbnailCover>
-        )}
-      </Media>
+    <GridItemCover>
+      <GridItemContainer>
+        <Media
+          queries={{
+            small: "(max-width: 767px)",
+            medium: "(min-width: 768px) and (max-width: 1199px)",
+            large: "(min-width: 1200px)",
+          }}
+        >
+          {matches => (
+            <ThumbnailCover className="content">
+              <span>
+                {data.name === "SquardMaker" ? (
+                  <Football size="24" />
+                ) : (
+                  <LogoYoutube size="24" color={"red"} />
+                )}
+                <ProjectTitle>{data.name}</ProjectTitle>
+              </span>
 
+              {!matches.small && <p>{data.summary}</p>}
+            </ThumbnailCover>
+          )}
+        </Media>
+        <LinkBtn>바로가기</LinkBtn>
+      </GridItemContainer>
+
+      {/* 
       <Overlay>
         <GridTitle>{data.name}</GridTitle>
         <Milestone>자세히</Milestone>
-      </Overlay>
-    </GridCover>
+      </Overlay> */}
+    </GridItemCover>
   )
 }
 
-const GridCover = styled.div`
+const GridItemCover = styled.div`
   display: flex;
   border: none;
   transition: all 0.4s ease-in-out;
@@ -56,6 +70,7 @@ const GridCover = styled.div`
   @media only screen and (min-width: 768px) {
     justify-content: flex-start;
     align-items: flex-start;
+    padding: 2rem;
   }
 
   &:after {
@@ -65,10 +80,18 @@ const GridCover = styled.div`
   }
 `
 
+const GridItemContainer = styled.span`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: space-between;
+`
+
 const ThumbnailCover = styled.div`
   display: flex;
   width: 100%;
-  justify-content: center;
+  height: 100%;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   font-size: 1.25rem;
@@ -78,8 +101,8 @@ const ThumbnailCover = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    margin: 2rem;
     align-items: flex-start;
+    justify-content: space-between;
   }
 `
 
@@ -149,6 +172,17 @@ const Milestone = styled.div`
   text-align: center;
   border: 1px white solid;
   transition: all 0.4s linear;
+`
+
+const LinkBtn = styled.button`
+  width: 100px;
+  height: 50px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: #8c38e5;
 `
 
 export default ProjectCard

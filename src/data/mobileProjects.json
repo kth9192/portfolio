@@ -1,10 +1,11 @@
-[{
+[
+  {
     "id": 0,
     "name": "용하다",
     "img": ["yong1.png", "yong2.png", "yong3.png"],
     "summary": "사주팔자 중계 어플리케이션",
     "description": "사주팔자 중계 어플리케이션",
-    "stack": ["android"],
+    "stacks": ["android"],
     "url": ""
   },
   {
@@ -13,7 +14,7 @@
     "img": ["bloom1.png", "bloom2.png", "bloom3.png"],
     "summary": "스마트화분 IoT어플리케이션",
     "description": "스마트화분 IoT어플리케이션",
-    "stack": ["android"],
+    "stacks": ["android"],
     "url": ""
   },
   {
@@ -22,7 +23,7 @@
     "img": ["pocket1.png", "pocket2.png"],
     "summary": "차량 임대 구독 플랫폼 어플리케이션",
     "description": "차량 임대 구독 플랫폼",
-    "stack": ["android"],
+    "stacks": ["android"],
     "url": ""
   }
 ]
