@@ -1,29 +1,21 @@
-[
-  {
+[{
     "id": 0,
+    "type": "mobile",
     "name": "용하다",
-    "img": ["yong1.png", "yong2.png", "yong3.png"],
+    "img": "yong1.png",
     "summary": "사주팔자 중계 어플리케이션",
-    "description": "사주팔자 중계 어플리케이션",
-    "stacks": ["android"],
+    "description": ["사주팔자 중계 플랫폼 어플리케이션", "사주인들 정보 등록 및 홍보와 개인화된 데이터에 따른 추천", "채팅 및 예약 기능을 비즈니스 핵심으로 함"],
+    "stacks": ["android", "rocket chat", "daum map"],
     "url": ""
   },
   {
     "id": 1,
+    "type": "mobile",
     "name": "블룸엔진",
-    "img": ["bloom1.png", "bloom2.png", "bloom3.png"],
+    "img": "bloom1.png",
     "summary": "스마트화분 IoT어플리케이션",
-    "description": "스마트화분 IoT어플리케이션",
-    "stacks": ["android"],
-    "url": ""
-  },
-  {
-    "id": 2,
-    "name": "포켓고",
-    "img": ["pocket1.png", "pocket2.png"],
-    "summary": "차량 임대 구독 플랫폼 어플리케이션",
-    "description": "차량 임대 구독 플랫폼",
-    "stacks": ["android"],
+    "description": ["스마트화분 IoT 플랫폼", "IoT장비와 소켓통신을 통해 화분의 기능을 제어하는 어플리케이션"],
+    "stacks": ["android", "socket"],
     "url": ""
   }
 ]

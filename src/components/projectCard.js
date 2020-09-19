@@ -32,7 +32,7 @@ const ProjectCard = data => {
             </ThumbnailCover>
           )}
         </Media>
-        <LinkBtn>바로가기</LinkBtn>
+        <LinkBtn onClick={() => (window.location = data.url)}>바로가기</LinkBtn>
       </GridItemContainer>
 
       {/* 
@@ -55,6 +55,7 @@ const GridItemCover = styled.div`
   align-items: center;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  padding: 2rem;
 
   &:hover {
     img {
@@ -70,7 +71,6 @@ const GridItemCover = styled.div`
   @media only screen and (min-width: 768px) {
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 2rem;
   }
 
   &:after {
@@ -82,19 +82,29 @@ const GridItemCover = styled.div`
 
 const GridItemContainer = styled.span`
   display: flex;
+  width: 100%;
   height: 100%;
   flex-direction: column;
-  align-items: space-between;
+  justify-content: center;
+  align-items: center;
 `
 
 const ThumbnailCover = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
-  justify-content: space-between;
+  height: 70%;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
   font-size: 1.25rem;
+
+  span {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
 
   p {
     margin: 1rem 0;
@@ -103,6 +113,7 @@ const ThumbnailCover = styled.div`
   @media only screen and (min-width: 768px) {
     align-items: flex-start;
     justify-content: space-between;
+    height: 85%;
   }
 `
 
@@ -152,7 +163,7 @@ const ProjectTitle = styled.p`
   font-weight: bold;
 
   @media only screen and (min-width: 768px) {
-    font-size: 18px;
+    font-size: 20px;
     width: 100%;
     margin: 1rem 0;
     font-weight: bold;
@@ -176,13 +187,17 @@ const Milestone = styled.div`
 
 const LinkBtn = styled.button`
   width: 100px;
-  height: 50px;
+  height: 30px;
   color: white;
   font-weight: bold;
   border: none;
   border-radius: 30px;
   cursor: pointer;
   background-color: #8c38e5;
+
+  @media only screen and (min-width: 768px) {
+    height: 50px;
+  }
 `
 
 export default ProjectCard

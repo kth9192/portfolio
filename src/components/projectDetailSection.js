@@ -1,21 +1,29 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+
 import { GetImage } from "../query/imageQuery"
+import { ProjectDatas } from "../hooks/allProject"
+import { MobileProjectDatas } from "../hooks/allMobileProject"
 
 const ProjectDetailItem = ({
   name,
+  type,
   img,
   summary,
   stacks,
   url,
   description,
 }) => {
-  console.log(name, img, description, summary, stacks, url)
+  console.log(type, name, img, description, summary, stacks, url)
+  console.log("====================================")
+  console.log(type === "mobile")
+  console.log("====================================")
   return (
     <ProjectItemCover>
-      <GetImage title={img} />
+      <ImgCover isMobile={type === "mobile"}>
+        <GetImage title={img} />
+      </ImgCover>
+
       <InfoCover>
         <Name>{name}</Name>
         {description.map(str => (
@@ -23,44 +31,33 @@ const ProjectDetailItem = ({
         ))}
         <StackContainer>
           {stacks.map((stack, idx) => (
-            <Chip key={`#${stack}${idx}`}>
-              <p>{stack}</p>
+            <Chip key={`${stack}${idx}`}>
+              <p>{`#${stack}`}</p>
             </Chip>
           ))}
         </StackContainer>
 
-        <LinkUrl href={url}>{`링크 : ${url}`}</LinkUrl>
+        <LinkUrl href={url}>{`${url}`}</LinkUrl>
       </InfoCover>
     </ProjectItemCover>
   )
 }
 
 function ProjectDetailSection() {
-  const data = useStaticQuery(graphql`
-    query {
-      allProjectInfosJson {
-        edges {
-          node {
-            name
-            stacks
-            summary
-            url
-            img
-            id
-            description
-          }
-        }
-      }
-    }
-  `)
+  const projects = ProjectDatas()
+  const mobileProjects = MobileProjectDatas()
 
   return (
     <Cover>
       <SectionSpacer />
-      {data &&
-        data.allProjectInfosJson.edges.map(project => {
+      {projects &&
+        projects.map(project => {
           return <ProjectDetailItem key={project.node.id} {...project.node} />
         })}
+      {mobileProjects &&
+        mobileProjects.map(project => (
+          <ProjectDetailItem key={project.node.id} {...project.node} />
+        ))}
     </Cover>
   )
 }
@@ -82,6 +79,7 @@ const Cover = styled.section`
     text-align: center;
   }
 `
+
 const SectionSpacer = styled.hr`
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -102,28 +100,32 @@ const ProjectItemCover = styled.div`
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     height: 30vh;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     position: relative;
   }
 
   .gatsby-image-wrapper {
-    width: 80%;
+    width: 70%;
     height: auto;
     margin: 1rem;
-
-    @media only screen and (min-width: 768px) {
-      width: 50%;
-      height: auto;
-    }
+    position: relative;
   }
 `
+
+const ImgCover = styled.div`
+  display: flex;
+
+  @media only screen and (min-width: 768px) {
+    width: ${props => (props.isMobile ? "100%" : "100%")};
+  }
+`
+
 const InfoCover = styled.div`
   display: flex;
   height: 100%;
   flex-direction: column;
 
   @media only screen and (min-width: 768px) {
-    width: 50%;
     height: 100%;
     /* align-items: flex-end; */
   }
@@ -163,17 +165,18 @@ const Chip = styled.div`
 const Name = styled.p`
   font-size: 18px;
   font-weight: bold;
-  margin: 1rem;
+  text-align: center;
+  margin: 1rem 0;
 
   @media only screen and (min-width: 768px) {
     font-size: 30px;
-    text-align: end;
   }
 `
 
 const LinkUrl = styled.a`
   bottom: 0;
   margin: 0 1rem;
+  text-align: center;
 
   &:link,
   &:visited,
@@ -184,7 +187,8 @@ const LinkUrl = styled.a`
   @media only screen and (min-width: 768px) {
     font-size: 20px;
     position: absolute;
-    right: 0;
+    text-align: start;
+
     bottom: 0;
     margin: 0 1rem;
   }

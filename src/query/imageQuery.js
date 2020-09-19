@@ -19,12 +19,17 @@ export function GetImage({ title }) {
   `)
 
   const image = data.allImageSharp.edges.find(edge => {
-    console.log(edge.node.fluid, title)
     return edge.node.fluid.originalName === title
   })
   if (!image) {
     return null
   }
 
-  return <Img fluid={image.node.fluid} />
+  return (
+    <Img
+      fluid={image.node.fluid}
+      imgStyle={{ objectFit: "contain" }}
+      style={{ maxHeight: "300px" }}
+    />
+  )
 }

@@ -1,6 +1,6 @@
-[
-  {
+[{
     "id": 0,
+    "type": "web",
     "name": "유튜브 클립 저장소",
     "img": "youtube-cutter.png",
     "summary": "유튜브 영상의 특정 시간대 저장 및 관리 페이지",
@@ -23,6 +23,7 @@
   },
   {
     "id": 1,
+    "type": "web",
     "name": "SquardMaker",
     "img": "squardmaker.png",
     "summary": "축구팀을 위한 명단 제작 사이트.",
