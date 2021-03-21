@@ -27,7 +27,7 @@ const Cover = styled.section`
   display: grid;
   padding: 2rem;
   grid-template-rows: 2%;
-  grid-auto-rows: 1fr;
+  grid-auto-rows: 0.5fr;
   box-sizing: border-box;
   border-radius: 15px;
   text-align: center;

@@ -84,6 +84,9 @@ const InfoCover = styled.div`
   display: flex;
   height: 100%;
   flex-direction: column;
+  p {
+    width: fit-content;
+  }
 
   @media only screen and (min-width: 768px) {
     height: 100%;

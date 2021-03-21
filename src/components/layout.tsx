@@ -46,7 +46,7 @@ const Cover = styled.div`
   main {
     display: grid;
     width: 100%;
-    grid-template-rows: 15% 15% 1fr;
+    grid-template-rows: 15% 20% 1fr;
     justify-items: center;
   }
 
