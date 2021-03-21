@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import Media from "react-media"
 import ProjectInfoModal from "./projectInfoModal"
@@ -7,6 +7,7 @@ import { Cut } from "@styled-icons/ionicons-sharp/"
 
 const ProjectCard = data => {
   console.log("info", data)
+
   return (
     <GridItemCover>
       <GridItemContainer>

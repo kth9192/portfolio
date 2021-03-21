@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import InfoSection from "../components/infoSection"
 import ProjectSection from "../components/projectSection"
-import ProjectDetailSection from "../components/projectDetailSection"
+import ProjectDetailSection from "../components/card/projectDetailSection"
 import SEO from "../components/seo"
 
 const IndexPage = () => (

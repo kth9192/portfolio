@@ -38,7 +38,7 @@ function ProjectSection() {
 
 const Cover = styled.section`
   display: flex;
-  height: 40%;
+
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -68,14 +68,15 @@ const GridContainer = styled.span`
   grid-template-columns: repeat(2, 1fr);
   grid-auto-columns: minmax(auto, 20%);
   justify-items: center;
+  align-items: center;
   grid-gap: 0.5rem;
 
   @media only screen and (min-width: 768px) {
-    grid-template-columns: repeat(5, 20%);
+    grid-template-columns: repeat(6, 1fr);
   }
 `
 
-const ProjectBox = styled.div`
+const ProjectBox = styled.div<{ isOther: boolean }>`
   display: ${props => (props.isOther ? "none" : "flex")};
   width: 80%;
   height: fit-content;
