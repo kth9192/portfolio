@@ -1,9 +1,7 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
-
-import { GetImage } from "../query/imageQuery"
-import { ProjectDatas } from "../hooks/allProject"
-import { MobileProjectDatas } from "../hooks/allMobileProject"
+import { GetImage } from "../../query/imageQuery"
+import { ImgUrl } from "../../shared/enum/imgUrls"
 
 const ProjectDetailItem = ({
   name,
@@ -18,11 +16,18 @@ const ProjectDetailItem = ({
   console.log("====================================")
   console.log(type === "mobile")
   console.log("====================================")
+
+  useEffect(() => {
+    console.log("====================================")
+    console.log("img", ImgUrl["create react app"], img)
+    console.log("====================================")
+  }, [])
+
   return (
     <ProjectItemCover>
-      <ImgCover isMobile={type === "mobile"}>
+      {/* <ImgCover isMobile={type === "mobile"}>
         <GetImage title={img} />
-      </ImgCover>
+      </ImgCover> */}
 
       <InfoCover>
         <Name>{name}</Name>
@@ -33,6 +38,7 @@ const ProjectDetailItem = ({
           {stacks.map((stack, idx) => (
             <Chip key={`${stack}${idx}`}>
               <p>{`#${stack}`}</p>
+              <GetImage title={ImgUrl[`${stack}`]} />
             </Chip>
           ))}
         </StackContainer>
@@ -43,63 +49,17 @@ const ProjectDetailItem = ({
   )
 }
 
-function ProjectDetailSection() {
-  const projects = ProjectDatas()
-  const mobileProjects = MobileProjectDatas()
-
-  return (
-    <Cover>
-      <SectionSpacer />
-      {projects &&
-        projects.map(project => {
-          return <ProjectDetailItem key={project.node.id} {...project.node} />
-        })}
-      {mobileProjects &&
-        mobileProjects.map(project => (
-          <ProjectDetailItem key={project.node.id} {...project.node} />
-        ))}
-    </Cover>
-  )
-}
-
-const Cover = styled.section`
-  display: flex;
-  padding: 2rem;
-  box-sizing: border-box;
-  border-radius: 15px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  float: left;
-  text-align: center;
-  margin-top: 1.5rem;
-
-  h1 {
-    font-size: 30px;
-    text-align: center;
-  }
-`
-
-const SectionSpacer = styled.hr`
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border: 0;
-  width: 100%;
-  border-top: 3px solid #e7e7e7;
-  text-align: center;
-`
-
 const ProjectItemCover = styled.div`
-  display: flex;
+  display: inline-block;
   height: 100%;
   align-items: center;
   flex-direction: column;
   text-align: start;
   margin: 1rem 0;
+  box-sizing: border-box;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
-    height: 30vh;
     /* justify-content: space-between; */
     position: relative;
   }
@@ -112,7 +72,7 @@ const ProjectItemCover = styled.div`
   }
 `
 
-const ImgCover = styled.div`
+const ImgCover = styled.div<{ isMobile: boolean }>`
   display: flex;
 
   @media only screen and (min-width: 768px) {
@@ -143,14 +103,18 @@ const StackContainer = styled.span`
     text-align: center;
   }
   @media only screen and (min-width: 768px) {
-    width: 80%;
-    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    grid-template-columns: repeat(8, 1fr);
   }
 `
 
 const Chip = styled.div`
+  display: flex;
   width: fit-content;
   height: fit-content;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   padding: 8px 5px;
   border: none;
   border-radius: 15px;
@@ -194,4 +158,4 @@ const LinkUrl = styled.a`
   }
 `
 
-export default ProjectDetailSection
+export default ProjectDetailItem

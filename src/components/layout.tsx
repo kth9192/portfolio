@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 import HeaderBar from "./headerBar"
-import TitleBox from "../components/titleBox"
+import TitleBox from "./titleBox"
 import { GlobalStyle } from "../globalStyle"
 
 const Layout = ({ children }) => {
@@ -44,10 +44,10 @@ const Cover = styled.div`
   height: 100vh;
 
   main {
-    display: flex;
+    display: grid;
     width: 100%;
-    align-items: center;
-    flex-direction: column;
+    grid-template-rows: 15% 15% 1fr;
+    justify-items: center;
   }
 
   footer {

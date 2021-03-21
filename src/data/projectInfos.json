@@ -1,4 +1,5 @@
-[{
+[
+  {
     "id": 0,
     "type": "web",
     "name": "유튜브 클립 저장소",
@@ -10,10 +11,10 @@
     ],
     "stacks": [
       "create react app",
+      "typescript",
       "nodejs",
       "graphQL",
       "react router",
-      "react hook",
       "grahql apollo",
       "JWT",
       "MYSQL",

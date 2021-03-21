@@ -1,0 +1,16 @@
+export enum ImgUrl {
+  "create react app" = "cra.png",
+  "react router" = "reactrouter.jpg",
+  "grahql apollo" = "apollo-graphql-1.png",
+  "graphQL" = "graphql-logo-2.png",
+  "Styled-Components" = "styledcomponent.png",
+  "react" = "react.png",
+  "redux" = "redux.png",
+  "webpack" = "webpack.png",
+  "nodejs" = "nodejs.png",
+  "vanila js" = "js.png",
+  "passport" = "passport.png",
+  "MYSQL" = "mysql.png",
+  "typescript" = "typescript.png",
+  "JWT" = "jwt.png",
+}

@@ -17,6 +17,7 @@
     "gatsby-plugin-sass": "^2.3.12",
     "gatsby-plugin-sharp": "^2.6.32",
     "gatsby-plugin-styled-components": "^3.3.10",
+    "gatsby-plugin-typescript": "^3.1.0",
     "gatsby-source-filesystem": "^2.3.28",
     "gatsby-transformer-json": "^2.4.12",
     "gatsby-transformer-sharp": "^2.5.14",
@@ -30,6 +31,7 @@
     "styled-reset": "^4.2.3"
   },
   "devDependencies": {
+    "@types/styled-components": "^5.1.9",
     "prettier": "2.1.1"
   },
   "keywords": [
