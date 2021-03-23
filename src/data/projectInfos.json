@@ -25,6 +25,24 @@
   {
     "id": 1,
     "type": "web",
+    "name": "Clear-recipe",
+    "img": "youtube-cutter.png",
+    "summary": "사용자 레시피의 저장 및 편집, 식사계획 설정",
+    "description": ["사용자가 원하는 레시피를 저장 및 관리하는 사이트"],
+    "stacks": [
+      "react",
+      "typescript",
+      "nodejs",
+      "react router",
+      "passport",
+      "mongodb",
+      "Styled-Components"
+    ],
+    "url": "https://clear-recipe.net/"
+  },
+  {
+    "id": 2,
+    "type": "web",
     "name": "SquardMaker",
     "img": "squardmaker.png",
     "summary": "축구팀을 위한 명단 제작 사이트.",

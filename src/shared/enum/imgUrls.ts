@@ -13,4 +13,5 @@ export enum ImgUrl {
   "MYSQL" = "mysql.png",
   "typescript" = "typescript.png",
   "JWT" = "jwt.png",
+  "mongodb" = "mongodb.png",
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import Media from "react-media"
 import ProjectInfoModal from "./projectInfoModal"
-import { Football, LogoYoutube } from "@styled-icons/ionicons-solid/"
+import { Football, LogoYoutube, FastFood } from "@styled-icons/ionicons-solid/"
 import { Cut } from "@styled-icons/ionicons-sharp/"
 
 const ProjectCard = data => {
@@ -23,6 +23,8 @@ const ProjectCard = data => {
               <span>
                 {data.name === "SquardMaker" ? (
                   <Football size="24" />
+                ) : data.name === "Clear-recipe" ? (
+                  <FastFood size="24" />
                 ) : (
                   <LogoYoutube size="24" color={"red"} />
                 )}
